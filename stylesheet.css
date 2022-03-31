@@ -1,0 +1,516 @@
+body {
+  background-color: white; /* #bbbbbb, #1a1a1a*/
+  font-family: Helvetica;
+}
+
+@font-face {
+  font-family: customRegular;
+  src: url(Assets/Font/Minera.otf);
+}
+
+@font-face {
+  font-family: fat;
+  src: url(Assets/Font/Minera-Bold.otf);
+}
+
+@font-face {
+  font-family: light;
+  src: url(Assets/Font/Minera-Light.otf);
+}
+
+/* ------------------------------------ Homepage ------------------------------------ */
+/* Navigation */
+#navigation-bar {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 0;
+  color: white;
+  z-index: 1;
+  position: relative;
+  top: 0;
+  margin: 10px;
+  pointer-events: none;
+}
+
+#navigation-logo-image {
+  margin-left: 15px;
+  margin-top: 23px;
+  width: 100px;
+  border-radius: 300px;
+  pointer-events: all;
+  transition: 0.4s ease;
+  left: 15px;
+  position: fixed;
+}
+
+#navigation-logo-image:hover {
+  transition: 0.4s ease;
+  transform: scale(1.05);
+}
+
+#navigation-links {
+  padding: 10px;
+  pointer-events: all;
+  transition: 0.3s ease;
+  right: 15px;
+  position: fixed;
+  color: white;
+  font-weight: 400;
+}
+
+#navigation-links:hover {
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
+
+#navigation-links-projects {
+  padding: 10px;
+  pointer-events: all;
+  transition: 0.3s ease;
+  right: 15px;
+  position: fixed;
+  color: black;
+  font-weight: 400;
+}
+
+#navigation-links-projects:hover {
+  opacity: 0.5;
+  transition: 0.3s ease;
+}
+
+/* Homepage - Projects Selection */
+.homepage {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.projects-container {
+  position: relative;
+}
+
+#index-projects-cover-img {
+  width: 100%;
+  height: calc(101vh + 5px); /* 70vh for differnt layout */
+  object-fit: cover;
+  position: relative;
+  margin-top: -5px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+#index-projects-cover-img:hover {
+  transition: 0.4s ease;
+}
+
+#index-projects-title {
+  position: absolute;
+  margin: 0;
+  bottom: 40px; /* 60px */
+  left: 40px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  pointer-events: none;
+
+  /* Slide-In Animation */
+  animation: slide-in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+#index-projects-subtitle {
+  position: absolute;
+  margin: 0;
+  bottom: 40px;
+  right: 40px;
+  font-size: 1.5rem;
+  color: white;
+  text-align: right;
+
+  /* Slide-In Animation */
+  animation: slide-in-2;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+/* Links */
+a,
+:visited {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ------------------------------------ About ------------------------------------ */
+#about-body {
+  background-color: white; /* lightslategray */
+  
+  /*user-select: none;
+  -webkit-user-select: none;
+  */
+}
+
+/* Introduction */
+.introduction {
+  padding-top: 120px;
+  margin-left: 20px;
+
+  /* Slide-In Animation */
+  animation: slide-in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+#introduction-title {
+  font-size: 5rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  opacity: 1;
+}
+
+#introduction-title:hover {
+  color: rgb(3, 114, 240);
+  animation: about-disco;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  transition: 0.2s ease;
+}
+
+#introduction-text {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 50px;
+  opacity: 0.3;
+}
+
+/* Information */
+.info-info-container {
+  padding-top: 70px;
+  padding-bottom: 150px;
+  margin-left: 30px;
+  position: relative;
+
+  /* Slide-In Animation */
+  animation: slide-in-2;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+.info-title-container {
+  width: calc(100% / 3);
+  /* ^ Adjust last number based on how many rows there are. */
+  float: left;
+  padding-bottom: 20px;
+}
+
+#info-title {
+  font-size: 2rem;
+  font-weight: 100;
+  line-height: 0.5;
+  color: black;
+  opacity: 0.25;
+}
+
+#info-line {
+  border: black solid 0.5px;
+  width: 90%;
+  margin-right: 10%;
+  margin-bottom: 40px;
+  opacity: 0.25;
+}
+
+#info-description {
+  font-size: 2rem;
+  font-weight: 100;
+  line-height: 0.5;
+  opacity: 0.6;
+}
+
+#links {
+  transition: 0.2s ease;
+}
+
+#links:hover {
+  transition: 0.2s ease;
+  opacity: 0.5;
+}
+
+.about-img-container {
+  position: relative;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* Disco Text */
+@keyframes about-disco {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(360deg);
+  }
+
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* 1st Slide-In */
+@keyframes slide-in {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* 2nd Slide-In, farther down */
+@keyframes slide-in-2 {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------ Project Site ------------------------------------ */
+.project-info-container {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  margin-left: 20px;
+  margin-right: -10px;
+  position: relative;
+}
+
+.project-description-container {
+  width: calc(100% / 3); /* Change to "3" for even spacing */
+  float: left;
+
+  /* Slide-In Animation */
+  animation: slide-in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+.proj-description-text-container {
+  padding-top: 150px;
+  width: calc(100% / 1);
+
+  /* Slide-In Animation */
+  animation: slide-in-2;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+#projects-title {
+  font-size: 1rem;
+  font-weight: 100;
+  line-height: 0;
+  color: black;
+  opacity: 0.3;
+}
+
+#project-text {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 400;
+  opacity: 0.6;
+  overflow: hidden;
+  margin-right: 30px;
+}
+
+.project-img-container {
+  position: relative;
+  margin-left: 5px;
+}
+
+.project-img {
+  position: relative;
+  width: calc(33% - 30px);
+  max-height: 90vh;
+  text-align: center;
+  object-fit: cover;
+  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Inspiration Page */
+.inspo-img-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.inspo-img {
+  display: grid;
+  justify-content: center;
+  align-content: center;  
+  float: left;
+  position: relative;
+  width: calc(100vw / 3);
+  height: 50%;
+  text-align: center;
+  object-fit: cover;
+}
+
+
+/* ------------------------------------ Mobile ------------------------------------ */
+@media screen and (max-width: 768px) {
+  /* ------------------ About - Introduction ------------------ */
+  /* Introduction */
+.introduction {
+  padding-top: 150px;
+  margin-left: 20px;
+
+  /* Slide-In Animation */
+  animation: slide-in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+#introduction-title {
+  font-size: 5rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  opacity: 1;
+}
+
+#introduction-title:hover {
+  color: rgb(3, 114, 240);
+  animation: about-disco;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  transition: 0.2s ease;
+}
+
+#introduction-text {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 50px;
+  opacity: 0.3;
+}
+  /* ------------------ About - Info ------------------ */
+.info-info-container {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  margin-left: 20px;
+  position: relative;
+
+  /* Slide-In Animation */
+  animation: slide-in-2;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+
+.info-title-container {
+  width: calc(100% / 1);
+  /* ^ Adjust last number based on how many rows there are. */
+  float: left;
+}
+
+#info-title {
+  font-size: 3rem;
+  font-weight: 100;
+  line-height: 0.5;
+  color: black;
+  opacity: 0.25;
+}
+
+#info-line {
+  border: black solid 0.5px;
+  width: 90%;
+  margin-right: 10%;
+  margin-bottom: 40px;
+  opacity: 0.25;
+}
+
+#info-description {
+  font-size: 2rem;
+  font-weight: 100;
+  line-height: 0.5;
+  opacity: 0.6;
+}
+
+#links {
+  transition: 0.2s ease;
+}
+
+#links:hover {
+  transition: 0.2s ease;
+  opacity: 0.5;
+}
+
+  /* ------------------ Project Site ------------------ */
+  .project-info-container {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+  }
+
+  .project-description-container {
+    width: 100%;
+    float: left;
+    padding-bottom: 50px;
+  }
+
+  #projects-title {
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 0;
+    color: black;
+    opacity: 0.2;
+  }
+
+  #project-text {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-weight: 400;
+    opacity: 0.6;
+    overflow: hidden;
+  }
+
+  .project-img-container {
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .project-img {
+    position: relative;
+    width: calc(100% - 30px);
+    height: 100%;
+    text-align: center;
+    object-fit: cover;
+    float: left;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
