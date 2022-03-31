@@ -340,6 +340,12 @@ a,
 .project-img-container {
   position: relative;
   margin-left: 5px;
+
+  /* Slide-In Animation */
+  animation: slide-in-2;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
 }
 
 .project-img {
@@ -392,7 +398,7 @@ a,
   /* ------------------ About - Introduction ------------------ */
   /* Introduction */
   .introduction {
-    padding-top: 150px;
+    padding-top: 100px;
     margin-left: 20px;
   
     /* Slide-In Animation */
@@ -403,7 +409,7 @@ a,
   }
   
   #introduction-title {
-    font-size: 5rem;
+    font-size: 2.5rem;
     margin-bottom: 0;
     font-weight: 500;
     opacity: 1;
@@ -420,7 +426,7 @@ a,
   }
   
   #introduction-text {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-right: 50px;
     opacity: 0.3;
@@ -466,7 +472,7 @@ a,
   
     /* ------------------ About - Info ------------------ */
   .info-info-container {
-    padding-top: 150px;
+    padding-top: 50px;
     padding-bottom: 150px;
     margin-left: 20px;
     position: relative;
@@ -485,23 +491,24 @@ a,
   }
   
   #info-title {
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 100;
     line-height: 0.5;
     color: black;
     opacity: 0.25;
+    margin-top: 30px;
   }
   
   #info-line {
     border: black solid 0.5px;
     width: 90%;
     margin-right: 10%;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     opacity: 0.25;
   }
   
   #info-description {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 100;
     line-height: 0.5;
     opacity: 0.6;
@@ -520,8 +527,6 @@ a,
     .project-info-container {
       padding-top: 100px;
       padding-bottom: 50px;
-      margin-left: 200px;
-      margin-right: 200px;
       position: relative;
     }
   
