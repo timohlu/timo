@@ -106,7 +106,7 @@ body {
   height: calc(101vh + 5px); /* 70vh for differnt layout */
   object-fit: cover;
   position: relative;
-  margin-top: -5px;
+  margin-bottom: -5px;
   cursor: pointer;
   transition: 0.4s ease;
 }
