@@ -399,14 +399,36 @@ a,
 @media screen and (max-width: 902px) {
   /* Logo */
   #navigation-logo-image {
-      margin-left: 13px;
-      margin-top: 25px;
+      margin-left: 0px;
+      margin-top: 10px;
       width: 90px;
       border-radius: 300px;
       pointer-events: all;
       transition: 0.4s ease;
-      left: 15px;
+      left: 10px;
       position: fixed;
+    }
+
+    #navigation-bar {
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 0;
+      color: white;
+      z-index: 1;
+      position: relative;
+      top: 0px;
+      margin: 0px;
+      pointer-events: none;
+    }
+
+    #navigation-links {
+      padding: 0px;
+      pointer-events: all;
+      transition: 0.3s ease;
+      right: 10px;
+      position: fixed;
+      color: white;
+      font-weight: 400;
     }
     
   /* ------------------ About - Introduction ------------------ */
@@ -465,8 +487,8 @@ a,
   #index-projects-title {
     position: absolute;
     margin: 0;
-    bottom: 30px; /* 60px */
-    left: 30px;
+    bottom: 10px; /* 60px */
+    left: 10px;
     font-size: 1.5rem;
     font-weight: 400;
     color: white;
@@ -482,8 +504,8 @@ a,
   #index-projects-subtitle {
     position: absolute;
     margin: 0;
-    bottom: 30px;
-    right: 30px;
+    bottom: 10px;
+    right: 10px;
     font-size: 1.5rem;
     color: white;
     text-align: right;
