@@ -1,15 +1,11 @@
 body {
-  background-color: white; /* #bbbbbb, #1a1a1a*/
+  background-color: black; /* #bbbbbb, #1a1a1a*/
   font-family: Helvetica;
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 ::-webkit-scrollbar{
   display: none;
-}
-
-body {
-  background-color: black;
 }
 
 #white-body {
