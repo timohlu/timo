@@ -8,6 +8,14 @@ body {
   display: none;
 }
 
+body {
+  background-color: black;
+}
+
+#white-body {
+  background-color: white;
+}
+
 * {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -426,6 +434,7 @@ a,
       pointer-events: all;
       transition: 0.3s ease;
       right: 10px;
+      top: 5px;
       position: fixed;
       color: white;
       font-weight: 400;
