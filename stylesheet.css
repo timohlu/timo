@@ -42,18 +42,18 @@ body {
   z-index: 1;
   position: relative;
   top: 0;
-  margin: 10px;
+  margin: 0;
   pointer-events: none;
 }
 
 #navigation-logo-image {
-  margin-left: 13px;
-  margin-top: 23px;
+  margin-left: 0px;
+  margin-top: 10px;
   width: 100px;
   border-radius: 300px;
   pointer-events: all;
   transition: 0.4s ease;
-  left: 15px;
+  left: 10px;
   position: fixed;
 }
 
@@ -63,10 +63,10 @@ body {
 }
 
 #navigation-links {
-  padding: 10px;
+  padding: 0px;
   pointer-events: all;
   transition: 0.3s ease;
-  right: 19px;
+  right: 10px;
   position: fixed;
   color: white;
   font-weight: 400;
@@ -78,10 +78,10 @@ body {
 }
 
 #navigation-links-projects {
-  padding: 10px;
+  padding: 0px;
   pointer-events: all;
   transition: 0.3s ease;
-  right: 19px;
+  right: 10px;
   position: fixed;
   color: black;
   font-weight: 400;
