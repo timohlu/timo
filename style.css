@@ -1,0 +1,72 @@
+@font-face {
+  font-family: Primary;
+  src: url("/fonts/ABCArizonaFlareVariable-Trial.ttf")  
+    format("truetype-variations");
+}
+
+body {
+  font-family: Primary;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #d9d9d9;
+}
+
+* {
+  font-family: Primary;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  transition: ease 300ms;
+  opacity: 0.6;
+}
+
+a:hover {
+  opacity: 1;
+  transition: ease 300ms;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  width: 100vw;
+}
+
+.container {
+  position: relative;
+  color: black;
+}
+
+.title-text {
+  font-size: 2em;
+  font-weight: 250;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  color: inherit;
+  text-align: center;
+}
+
+.subtitle-text {
+  font-size: 1em;
+  font-weight: 250;
+  margin: 0;
+  line-height: 2;
+  color: inherit;
+  text-align: center;
+}
+
+button {
+  background: none;
+  background-color: black;
+  color: #d9d9d9;
+  border: solid 1px black;
+  padding: 3px 10px 5px 10px;
+  border-radius: 100px;
+}
