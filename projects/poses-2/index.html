@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT</title>
+  <link rel="stylesheet" href="../project.css">
+  <script defer src="/JS/core.js"></script>
+  <script defer src="/JS/imageProtection.js"></script>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="nav-links-container">
+      <div class="nav-link"><a href="/index.html">Home</a></div>
+      <div class="nav-link"><a href="">About</a></div>
+    </div>
+    <label class="switch">
+      <input type="checkbox" id="changeView">
+      <span class="slider round"></span>
+    </label>
+  </nav>
+
+  <main id="main">
+    <section>
+      <div class="pos-img-container" id="contentContainer">
+        <img id="content" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_Blue_001.png" alt=""
+          class="image full" loading="lazy">
+        <img id="content" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_Blue_002.png" alt=""
+          class="image full" loading="lazy">
+        <img id="content" src="/projects/poses-2/assets/PosesVol2_RS_PP_Thin-1_PV_HG_Blue_014.png" alt=""
+          class="image full" loading="lazy">
+        <img id="content" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_001.png" alt="" class="image full"
+          loading="lazy">
+        <img id="content" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_002.png" alt="" class="image full"
+          loading="lazy">
+        <img id="content" src="/projects/poses-2/assets/PosesVol2_RS_PP_Thin-1_PV_HG_014.png" alt="" class="image full"
+          loading="lazy">
+      </div>
+    </section>
+
+    <div class="description-container description-small">
+      <div class="description-div">
+        <p class="info">Title</p>
+        <p class="text" id="showCredits">Poses II</p>
+      </div>
+      <div class="description-div">
+        <p class="info">Date</p>
+        <p class="text">2022</p>
+      </div>
+      <div class="description-div">
+        <p class="info">Type</p>
+        <p class="text">Personal</p>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">✕</span>
+        <p class="modal-title">Credits</p>
+        <!-- Creative Direction + Photography -->
+        <div class="modal-text-div">
+          <p class="modal-info">All</p>
+          <p class="modal-text">Timo Hlubek</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    // View Switcher
+    document.addEventListener('DOMContentLoaded', function () {
+      const changeViewCheckbox = document.getElementById('changeView');
+      const main = document.getElementById('main');
+      const contentContainers = document.querySelectorAll('.pos-img-container');
+
+      function applyStyling() {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        contentContainers.forEach(container => {
+          container.classList.remove('pos-grid-desktop', 'pos-flex-desktop', 'pos-grid-mobile', 'pos-flex-mobile');
+
+          if (isMobile) {
+            if (changeViewCheckbox.checked) {
+              container.classList.add('pos-flex-mobile');
+              main.classList.remove('pos-padding-desktop'); // Remove desktop padding
+              main.classList.remove('pos-padding-mobile'); // Remove mobile padding
+            } else {
+              container.classList.add('pos-grid-mobile');
+              main.classList.add('pos-padding-mobile');
+            }
+          } else {
+            if (changeViewCheckbox.checked) {
+              container.classList.add('pos-flex-desktop');
+              main.classList.remove('pos-padding-mobile'); // Remove mobile padding
+              main.classList.remove('pos-padding-desktop'); // Remove desktop padding
+            } else {
+              container.classList.add('pos-grid-desktop');
+              main.classList.add('pos-padding-desktop');
+            }
+          }
+        });
+      }
+
+      function handleMediaQueryChange() {
+        applyStyling();
+      }
+
+      changeViewCheckbox.addEventListener('change', function () {
+        applyStyling();
+        const checkboxState = changeViewCheckbox.checked ? 'checked' : 'unchecked';
+        localStorage.setItem('changeViewCheckboxState', checkboxState);
+      });
+
+      window.addEventListener('resize', function () {
+        handleMediaQueryChange();
+      });
+
+      const savedCheckboxState = localStorage.getItem('changeViewCheckboxState');
+      changeViewCheckbox.checked = savedCheckboxState === 'checked';
+
+      applyStyling();
+      handleMediaQueryChange();
+    });
+  </script>
+</body>
+
+</html>

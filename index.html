@@ -3,21 +3,98 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon...</title>
-  <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Timo Hlubek</title>
+  <link rel="stylesheet" href="/public/style.css">
+  <script defer src="/public/global.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 </head>
 
 <body>
-  <main>
-    <div class="container">
-      <p class="title-text">2024 – TIMO HLUBEK</p>
-      <p class="subtitle-text">This site will be back up soon.</p>
-      <p class="subtitle-text"><a href="https://www.instagram.com/timohlubek" target="_blank">Instagram</a> <a
-          href="&#109;a&#105;l&#116;&#111;:&#116;&#105;&#109;&#111;&#104;&#108;&#117;&#57;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">Email</a>
-      </p>
+  <nav id="navbar">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/Views/about" class="nav-link">About</a>
+  </nav>
+
+  <main class="main-home" id="scrollableElement">
+    <!-- Fashionbook -->
+    <div class="project-container">
+      <div class="project-title-background">
+        <p class="project-title">Fashionbook</p>
+      </div>
+      <a href="/Views/fashiobook/" class="project-link">
+        <img src="/projects/fashionbook/assets/images/petroleum/2160x2700_PETROL7683_web.webp" alt="" class="cover-image" draggable="false" loading="eager">
+      </a>
+    </div>
+    <!-- Halo -->
+    <div class="project-container">
+      <div class="project-title-background">
+        <p class="project-title">Halo Edition</p>
+      </div>
+      <a href="/Views/halo/" class="project-link">
+        <img src="/projects/halo-edition/assets/images/STILL_PACKSHOT_MAG_WHITE_4K_web.webp" alt="" class="cover-image" draggable="false" loading="lazy">
+      </a>
+    </div>
+    <!-- Poses -->
+    <div class="project-container">
+      <div class="project-title-background">
+        <p class="project-title">Poses</p>
+      </div>
+      <a href="/Views/poses/" class="project-link">
+        <img src="/projects/poses-2/assets/PosesVol2_RS_PP_Cover-1_PV_HG_002_web.webp" alt="" class="cover-image" draggable="false" loading="lazy">
+      </a>
+    </div>
+    <!-- Liss -->
+    <div class="project-container">
+      <div class="project-title-background">
+        <p class="project-title">Liss</p>
+      </div>
+      <a href="/Views/liss/" class="project-link">
+        <img src="/projects/liss/assets/Bath_HD_M_L_GH_F_001.png" alt="" class="cover-image" draggable="false" loading="lazy">
+      </a>
     </div>
   </main>
+  <footer>
+    <div class="footer-div">
+      <p class="footer-text">© Timo Hlubek</p>
+    </div>
+    <div class="footer-div">
+      <a href="/Views/legal/imprint/" class="footer-text">Impressum</a>
+      <a href="/Views/legal/privacy/" class="footer-text">Datenschutzerklärung</a>
+    </div>
+  </footer>
+  <script>
+    function isMobileDevice() {
+      return /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+    }
+
+    function initSmoothScrolling() {
+      let lenis;
+
+      const init = () => {
+        lenis = new Lenis({
+          lerp: 0.1,
+          smoothWheel: true,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+      };
+
+      init();
+    }
+
+    if (!isMobileDevice()) {
+      initSmoothScrolling();
+    }
+  </script>
 </body>
 
 </html>

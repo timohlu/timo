@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poses II</title>
+  <link rel="stylesheet" href="/public/style.css">
+  <script defer src="/public/global.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+</head>
+
+<body>
+  <nav id="navbar">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/Views/about" class="nav-link">About</a>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <div class="header-container">
+      <a class="header-text" id="showCredits">"Liss"</a>
+      <p class="header-text">Personal Work</p>
+      <p class="header-text">2022</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-content">
+        <span class="modal-close" id="closeModal">✕</span>
+        <p class="modal-title">Credits</p>
+        <div class="modal-text-div">
+          <p class="modal-info">Visuals & Idea</p>
+          <p class="modal-text">Timo Hlubek</p>
+        </div>
+        <div class="modal-text-div">
+          <p class="modal-info">Writing</p>
+          <p class="modal-text">Lorenz Müller</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox backdrop-blur" id="lightbox">
+      <button class="close-btn" id="close-btn">✕</button>
+      <button class="prev-btn" id="prev-btn">←</button>
+      <img src alt="Lightbox Image" class="lightbox-img" id="lightbox-img" draggable="false" loading="lazy">
+      <button class="next-btn" id="next-btn">→</button>
+    </div>
+
+    <!-- Images -->
+    <div class="image-container grid-two">
+      <div class="liss-container">
+        <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Suite_HD_M_L_F_001.png" alt draggable="false" loading="lazy">
+        <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Suite_HD_CU-1_L_F_001.png" alt draggable="false" loading="lazy">
+        <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Suite_HD_CU-2_L_F_001.png" alt draggable="false" loading="lazy">
+        <div class="liss-text-div">
+          <p class="liss-title">Suite</p>
+          <div class="liss-text-container">
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Wie ging es weiter, nachdem Sie die Prostituierte erschlagen haben?
+              </p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">Ich habe den Baseballschläger fallen lassen und dann führte ein Problem
+                zum Nächsten.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Probleme?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">Gegenüber wohnt diese alte Hexe. Sie schaut ständig durch den Türspion
+                oder steht auf dem Flur und quatscht jeden an.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Sie wollten ihr also ausweichen?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">*nickt* Wegen ihr habe ich die verschnürte Nutte aus dem Fenster in die
+                Mülltonne geworfen.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Das Ostfenster?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">Äh, ja. Osten. Es zeigt nach Osten. Darunter liegt die Gasse mit den
+                Tonnen.
+              <p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Erinnern Sie sich an die Uhrzeit?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">Das Fenster habe ich exakt um drei Uhr geöffnet.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Weshalb um drei Uhr?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">Ich habe die Nachbarschaft beobachtet und geglaubt, dass alle schlafen.
+              </p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Ein Irrtum.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">*nickt stumm*</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Die Gestalt an der Hausmauer mit der Spraydose haben Sie nicht
+                gesehen?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Beschuldigter</p>
+              <p class="liss-message-content left">*schüttelt den Kopf*</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Unglaublich.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Ich kann es nicht fassen. *grinst* Keiner hätte gedacht, dass Banksys
+                Identität auffliegt, weil er ausgerechnet dort an einem Graffiti arbeitet, wo Sie eine Leiche aus der
+                neunten Etage werfen.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Anwalt</p>
+              <p class="liss-message-content left">Sie sehen, dass mein Mandant umfassend kooperiert. Was kriegt er für
+                sein Geständnis?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Sicher nicht den Banksy. *lacht laut heraus* Da müsste man ja die
+                ganze Ostwand abtragen.</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message left">
+              <p class="liss-message-author left">Anwalt</p>
+              <p class="liss-message-content left">Finden Sie das witzig?</p>
+            </div>
+            <!-- next -->
+            <div class="liss-message right">
+              <p class="liss-message-author right">Polizist</p>
+              <p class="liss-message-content right">Das Strafmass ist nicht mein Problem. Fragen Sie den Staatsanwalt.
+              </p>
+            </div>
+            <p class="end-message">End of conversation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="liss-container">
+        <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Bath_HD_M_L_GH_F_001.png" alt draggable="false" loading="lazy">
+        <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Bath_HD_CU-2_L_GH_F_001.png" alt draggable="false" loading="lazy">
+        <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Bath_HD_CU-1_L_GH_F_001.png" alt draggable="false" loading="lazy">
+        <div class="liss-text-div">
+          <p class="liss-title">Cold as Marble</p>
+          <p class="liss-text">
+            Unvorstellbar, wie leer das Leben ist, wenn es leer ist.
+            <br>
+            Leute zeigen auf dich und sagen:
+            <br>
+            «Aber sie hat doch alles.»
+            <br><br>
+            «Was stimmt nicht mit ihr?»
+            <br><br>
+            Oder: «Sie braucht doch bloss zufrieden zu sein.»
+            <br><br>
+            Aber Leere bedeutet, dass wirklich alles leer ist. Selbst wenn ich das Fenster öffne und die Geräusche der Stadt zu mir dringen, ist es, als ob ich in der Wüste stünde. Das Sein ist so kalt wie das Hell und das Dunkel im Muster des Marmors.
+            <br><br>
+            Hier zu liegen und zu warten, bis die Tabletten wirken, überschwemmt mich mit einer angenehmen Aufregung. Der Boden ist hart, aber ich fühle mich federleicht. Ich gehe mit dem Wissen, dass alles gut sein wird.
+            <br><br>
+            Eigentlich gehe ich gar nicht. Vielmehr kehre ich nachhause zurück. Es ist nicht das Ende, sondern der Anfang. Meine Reise dahin, wo meine Seele hingehört. Und ihr sollt nicht trauern oder euch quälende Fragen stellen. Ihr sollt nur akzeptieren. Es einfach annehmen.
+            <br><br>
+            Für alle, die sich den Mund verreissen werden, habe ich eine Botschaft. Ihr müsst nicht verstehen. Ihr braucht nur zu wissen, dass ich es so will. Denn meine Geschichte ist so, wie ich sie für mich selbst geschrieben habe. Es ist meine Geschichte und nicht die Eure.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <div class="footer-div">
+      <p class="footer-text">© Timo Hlubek</p>
+    </div>
+    <div class="footer-div">
+      <a href="/Views/legal/imprint/" class="footer-text">Impressum</a>
+      <a href="/Views/legal/privacy/" class="footer-text">Datenschutzerklärung</a>
+    </div>
+  </footer>
+</body>
+
+</html>

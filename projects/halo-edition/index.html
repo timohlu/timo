@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halo Anniversary</title>
+  <link rel="stylesheet" href="../project.css">
+  <script defer src="/JS/core.js"></script>
+  <script defer src="/JS/imageProtection.js"></script>
+  <script defer src="/projects/halo-edition/halo-edition-js.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="nav-links-container">
+      <div class="nav-link"><a href="/index.html">Home</a></div>
+      <div class="nav-link"><a href="">About</a></div>
+    </div>
+
+    <label class="switch">
+      <input type="checkbox" id="changeView">
+      <span class="slider round"></span>
+    </label>
+  </nav>
+
+  <main id="main" class="halo-main">
+    <!-- Book Section -->
+      <div class="haed-img-container grid-desktop" id="contentContainer">
+        <!-- <img src="/" alt="Halo Edition Video" class="fb-img" loading="lazy"> -->
+        <div class="video-container">
+          <video id="video-one" src="./assets/videos/HALO_EDITION_FILM_16-9.mp4" alt="Halo Edition Video"
+            class="haed-video" loading="eager" autplay playsinline>
+          </video>
+          <div class="video-controls-div">
+            <button class="video-control-button" onclick="togglePlay()">
+              <img id="pause" class="video-control-icon" src="/assets/svg/utility/pause-fill.svg" alt="">
+              <img id="play" class="video-control-icon" src="/assets/svg/utility/play-fill.svg" alt="">
+            </button>
+            <button class="video-control-button" onclick="toggleMute()">
+              <img id="unmute" class="video-control-icon" src="/assets/svg/utility/volume-up-fill.svg" alt="">
+              <img id="mute" class="video-control-icon" src="/assets/svg/utility/volume-mute-fill.svg" alt="">
+            </button>
+          </div>
+        </div>
+        <script>
+          var video = document.getElementById("video-one");
+          const pauseButton = document.getElementById("pause")
+          const playButton = document.getElementById("play")
+          const muteButton = document.getElementById("mute")
+          const unmuteButton = document.getElementById("unmute")
+
+          function toggleMute() {
+            if (video.muted) {
+              video.muted = false;
+              unmuteButton.style.display = "block";
+              muteButton.style.display = "none";
+            } else {
+              video.muted = true;
+              muteButton.style.display = "block";
+              unmuteButton.style.display = "none";
+            }
+          }
+
+          function togglePlay() {
+            if (video.paused) {
+              video.play();
+              playButton.style.display = "none";
+              pauseButton.style.display = "block";
+            } else {
+              video.pause();
+              playButton.style.display = "block";
+              pauseButton.style.display = "none";
+            }
+          }
+        </script>
+      </div>
+      <video src="./assets/videos/HALO_CUTDOWN_MAG_V002.mp4" alt="Halo Edition Video" class="haed-video"
+        loading="lazy" loop muted autoplay></video>
+
+    <!-- Description -->
+    <div class="description-container">
+      <div class="description-div">
+        <p class="info">Title</p>
+        <p class="text" id="showCredits">Halo Anniversary</p>
+      </div>
+      <div class="description-div">
+        <p class="info">Date</p>
+        <p class="text">2023</p>
+      </div>
+      <div class="description-div">
+        <p class="info">Client</p>
+        <p class="text">Services Généraux</p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">✕</span>
+        <p class="modal-title">Credits</p>
+        <!-- Post Production -->
+        <div class="modal-text-div">
+          <p class="modal-info">Production</p>
+          <p class="modal-text">Services Généraux, Alter Bureau, Sacha Minier, Timo Hlubek</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    // View Switcher
+    document.addEventListener('DOMContentLoaded', function () {
+      const changeViewCheckbox = document.getElementById('changeView');
+      const main = document.getElementById('main');
+      const contentContainers = document.querySelectorAll('.haed-img-container');
+
+      function applyStyling() {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+        contentContainers.forEach(container => {
+          container.classList.remove('haed-grid-desktop', 'haed-flex-desktop', 'haed-grid-mobile', 'haed-flex-mobile');
+
+          if (isMobile) {
+            if (changeViewCheckbox.checked) {
+              container.classList.add('haed-flex-mobile');
+              main.classList.remove('haed-padding-desktop'); // Remove desktop padding
+              main.classList.remove('haed-padding-mobile'); // Remove mobile padding
+            } else {
+              container.classList.add('haed-grid-mobile');
+              main.classList.add('haed-padding-mobile');
+            }
+          } else {
+            if (changeViewCheckbox.checked) {
+              container.classList.add('haed-flex-desktop');
+              main.classList.remove('haed-padding-mobile'); // Remove mobile padding
+              main.classList.remove('haed-padding-desktop'); // Remove desktop padding
+            } else {
+              container.classList.add('haed-grid-desktop');
+              main.classList.add('haed-padding-desktop');
+            }
+          }
+        });
+      }
+
+      function handleMediaQueryChange() {
+        applyStyling();
+      }
+
+      changeViewCheckbox.addEventListener('change', function () {
+        applyStyling();
+        const checkboxState = changeViewCheckbox.checked ? 'checked' : 'unchecked';
+        localStorage.setItem('changeViewCheckboxState', checkboxState);
+      });
+
+      window.addEventListener('resize', function () {
+        handleMediaQueryChange();
+      });
+
+      const savedCheckboxState = localStorage.getItem('changeViewCheckboxState');
+      changeViewCheckbox.checked = savedCheckboxState === 'checked';
+
+      applyStyling();
+      handleMediaQueryChange();
+    });
+  </script>
+</body>
+
+</html>
