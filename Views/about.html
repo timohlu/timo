@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About</title>
+  <meta name="description" content="Here on my about page I tell you a bit about myself." />
+  <meta name="keywords" content="about, about me, 3D rendering, 3D design, architectural visualization, interior design rendering, product visualization, CGI services, photorealistic rendering, animation." />
   <link rel="stylesheet" href="/public/style.css">
   <script defer src="/public/global.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -13,8 +15,8 @@
 
 <body>
   <nav id="navbar">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/Views/about" class="nav-link">About</a>
+    <a href="/" class="nav-link" aria-label="Return to Homepage">Home</a>
+    <a href="/Views/about" class="nav-link" aria-label="Go to About page">About</a>
   </nav>
 
   <main class="about-main">
@@ -36,8 +38,8 @@
       <p class="footer-text">© Timo Hlubek</p>
     </div>
     <div class="footer-div">
-      <a href="/Views/legal/imprint/" class="footer-text">Impressum</a>
-      <a href="/Views/legal/privacy/" class="footer-text">Datenschutzerklärung</a>
+      <a href="/Views/legal/imprint/" class="footer-text" aria-label="Visit Impressum">Impressum</a>
+      <a href="/Views/legal/privacy/" class="footer-text" aria-label="Visit Datenschutzerklärung">Datenschutzerklärung</a>
     </div>
   </footer>
 </body>
