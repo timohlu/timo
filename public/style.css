@@ -18,6 +18,7 @@
   --middleground: #1e1e1e;
   --background: #d9d9d9;
 
+  --padding-xxs: 4px;
   --padding-xs: 8px;
   --padding-s: 12px;
   --padding-m: 16px;
@@ -65,7 +66,6 @@ a {
 a:hover {
   color: inherit;
   text-decoration: underline;
-  cursor: pointer;
 }
 
 button {
@@ -99,6 +99,10 @@ nav {
 .main-home {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: block mandatory;
+  overscroll-behavior: e;
 }
 
 .main-home::-webkit-scrollbar {
@@ -112,8 +116,9 @@ nav {
 
 .project-container {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .project-container:hover .cover-image {
@@ -208,8 +213,18 @@ nav {
 
 .project-image {
   width: 100%;
-  border-radius: var(--padding-xs);
+  /* border-radius: var(--padding-xxs); */
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+  transition: filter 300ms ease;
+}
+
+.project-video {
+  border-radius: var(--padding-xs);
+}
+
+.project-image:hover {
+  filter: brightness(0.9);
+  transition: filter 300ms ease;
 }
 
 /* Video */
@@ -219,11 +234,10 @@ nav {
 
 .video-controls-div {
   position: absolute;
-  right: 24px;
-  bottom: 24px;
+  right: 12px;
+  bottom: 12px;
   display: flex;
   gap: 6px;
-  mix-blend-mode: exclusion;
 }
 
 .video-control-button {
@@ -232,12 +246,14 @@ nav {
   border-radius: 100px;
   border: none;
   cursor: pointer;
-  background-color: var(--foreground);
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .video-control-icon {
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
   margin: 6px;
   pointer-events: none;
 }
@@ -415,7 +431,7 @@ nav {
 .lightbox-img {
   max-width: 80%;
   max-height: 80%;
-  border-radius: var(--padding-s);
+  border-radius: var(--padding-xs);
 }
 
 .close-btn {
@@ -487,7 +503,7 @@ footer {
   font-family: "Mono";
 }
 
-/* About */
+/* --------------------------------------------------------------------------------------- About */
 .about-main {
   min-height: 100vh;
   display: flex;

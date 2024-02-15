@@ -1,8 +1,28 @@
 var video = document.getElementById("video-one");
-const pauseButton = document.getElementById("pause")
-const playButton = document.getElementById("play")
-const muteButton = document.getElementById("mute")
-const unmuteButton = document.getElementById("unmute")
+const pauseButton = document.getElementById("pause");
+const playButton = document.getElementById("play");
+const muteButton = document.getElementById("mute");
+const unmuteButton = document.getElementById("unmute");
+
+// Toggle mute when "m" key is pressed
+document.addEventListener("keydown", function (event) {
+  if (event.key === "m") {
+    toggleMute();
+  }
+});
+
+// Pause/unpause when spacebar is pressed
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space") {
+    event.preventDefault();
+    togglePlay();
+  }
+});
+
+// Pause/unpause when clicking on the video
+video.addEventListener("click", function () {
+  togglePlay();
+});
 
 function toggleMute() {
   if (video.muted) {

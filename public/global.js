@@ -53,7 +53,6 @@ function preventContextMenu(event) {
 
 document.addEventListener("contextmenu", preventContextMenu);
 
-
 document.addEventListener("DOMContentLoaded", function () {
   var images = document.querySelectorAll('img');
 
@@ -83,23 +82,19 @@ function checkModalVisibility() {
   }
 }
 
-document
-  .getElementById("showCredits")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("myModal").style.display = "flex";
-    checkModalVisibility();
-    saveScrollPosition();
-  });
+document.getElementById("showCredits").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.getElementById("myModal").style.display = "flex";
+  checkModalVisibility();
+  saveScrollPosition();
+});
 
-document
-  .getElementById("closeModal")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("myModal").style.display = "none";
-    restoreScrollPosition();
-    enableScroll();
-  });
+document.getElementById("closeModal").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.getElementById("myModal").style.display = "none";
+  restoreScrollPosition();
+  enableScroll();
+});
 
 window.addEventListener("click", function (event) {
   var modal = document.getElementById("myModal");
@@ -111,19 +106,20 @@ window.addEventListener("click", function (event) {
   }
 });
 
-function preventContextMenu(event) {
-  event.preventDefault();
-}
 
-document.addEventListener("contextmenu", preventContextMenu);
+// function preventContextMenu(event) {
+//   event.preventDefault();
+// }
 
-document.addEventListener("DOMContentLoaded", function () {
-  var images = document.querySelectorAll('img');
+// document.addEventListener("contextmenu", preventContextMenu);
 
-  images.forEach(function (image) {
-    image.setAttribute('draggable', 'false');
-  });
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   var images = document.querySelectorAll('img');
+
+//   images.forEach(function (image) {
+//     image.setAttribute('draggable', 'false');
+//   });
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const lightbox = document.getElementById("lightbox");
@@ -261,10 +257,3 @@ function initSmoothScrolling() {
 if (!isMobileDevice()) {
   initSmoothScrolling();
 }
-
-// function handleHorizontalScroll(scrollableElement) {
-//   scrollableElement.addEventListener('wheel', (ev) => {
-//     ev.preventDefault();
-//     scrollableElement.scrollLeft += (ev.deltaY + ev.deltaX);
-//   });
-// }
