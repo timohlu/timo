@@ -606,6 +606,17 @@ a.about-text:hover {
   text-transform: uppercase;
 }
 
+.logo-small {
+  aspect-ratio: 1;
+  margin-top: 2em;
+  width: 50px;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.2;
+}
+
 /* --------------------------------------------------------------------------------------- Imprint & Privacy Policy */
 .imprint-main {
   min-height: 100vh;
