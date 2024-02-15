@@ -504,7 +504,7 @@ footer {
 }
 
 .about-main {
-  height: 100vh;
+  height: 100svh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -514,7 +514,7 @@ footer {
 
 .about-divider {
   scroll-snap-align: center;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   padding-left: 12%;
   justify-content: start;
@@ -760,10 +760,25 @@ a.imprint-text:hover {
     gap: var(--padding-l);
   }
 
+  .about-title {
+    font-size: 1.5em;
+    line-height: 2;
+    opacity: 0.3;
+  }
+
+  .about-text {
+    font-size: 1em;
+  }
+
   .company-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 48px;
     --logo-size: 60px;
+  }
+
+  .logo-small {
+    width: 30px;
+    bottom: 24px;
   }
 
   /* Imprint / Privacy Policy */
