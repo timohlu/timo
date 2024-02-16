@@ -218,11 +218,6 @@ nav {
   border-radius: var(--padding-xs);
 }
 
-.project-image:hover {
-  filter: brightness(0.9);
-  transition: filter 300ms ease;
-}
-
 /* Video */
 .video-container {
   position: relative;
@@ -442,6 +437,11 @@ nav {
 
 .lightbox-trigger {
   cursor: pointer;
+}
+
+.lightbox-trigger:hover {
+  filter: brightness(0.9);
+  transition: filter 300ms ease;
 }
 
 .prev-btn {
