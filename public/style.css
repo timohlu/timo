@@ -574,7 +574,7 @@ a.about-text:hover {
 .company-grid {
   margin-top: 2em;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 32px;
   align-items: center;
   justify-items: center;
@@ -771,9 +771,9 @@ a.imprint-text:hover {
   }
 
   .company-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px;
-    --logo-size: 60px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 64px;
+    --logo-size: 50px;
   }
 
   .logo-small {
@@ -846,5 +846,18 @@ a.imprint-text:hover {
     border-radius: 500px;
     bottom: var(--padding-s);
     right: var(--padding-s);
+  }
+
+  .company-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    --logo-size: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .company-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
   }
 }
