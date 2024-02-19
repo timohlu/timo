@@ -706,7 +706,7 @@ a.imprint-text:hover {
   }
 
   .video-control-icon {
-    width: 20 px;
+    width: 20px;
     height: 20px;
   }
 
@@ -778,6 +778,27 @@ a.imprint-text:hover {
   .logo-small {
     width: 30px;
     bottom: 24px;
+  }
+
+  /* Modal */
+  .modal-content {
+    max-width: 80vw;
+    max-height: 90vh;
+    overflow-y: scroll;
+  }
+
+  .modal-close {
+    position: fixed;
+    color: var(--background);
+    top: 12px;
+    right: 12px;
+    background-color: var(--foreground);
+    width: 1.5em;
+    height: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
   }
 
   /* Imprint / Privacy Policy */
