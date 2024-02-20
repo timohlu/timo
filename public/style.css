@@ -87,7 +87,7 @@ nav {
   justify-content: space-between;
   gap: 1em;
   text-transform: uppercase;
-  color: var(--foreground);
+  color: white;
   transition: 600ms ease;
   user-select: none;
   mix-blend-mode: exclusion;
@@ -783,7 +783,7 @@ a.imprint-text:hover {
   /* Modal */
   .modal-content {
     max-width: 80svw;
-    max-height: 80svh;
+    max-height: 75svh;
     overflow-y: scroll;
   }
 
