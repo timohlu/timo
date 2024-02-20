@@ -888,4 +888,5 @@ iframe {
   pointer-events: none;
   display: none;
   visibility: hidden;
+  border: 1px solid red;
 }

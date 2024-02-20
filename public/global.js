@@ -257,3 +257,13 @@ function initSmoothScrolling() {
 if (!isMobileDevice()) {
   initSmoothScrolling();
 }
+
+// Prevent iFrame
+document.addEventListener('DOMContentLoaded', function () {
+  if (window === window.top) {
+    var meta = document.createElement('meta');
+    meta.setAttribute('http-equiv', 'X-Frame-Options');
+    meta.setAttribute('content', 'DENY');
+    document.head.appendChild(meta);
+  }
+});
