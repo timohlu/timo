@@ -881,3 +881,11 @@ a.imprint-text:hover {
     gap: 48px;
   }
 }
+
+/* Disable iFrame */
+iframe {
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+  visibility: hidden;
+}
