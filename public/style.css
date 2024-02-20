@@ -783,15 +783,15 @@ a.imprint-text:hover {
   /* Modal */
   .modal-content {
     max-width: 80vw;
-    max-height: 90vh;
+    max-height: 80vh;
     overflow-y: scroll;
   }
 
   .modal-close {
     position: fixed;
     color: var(--background);
-    top: 12px;
-    right: 12px;
+    right: 24px;
+    top: 48px;
     background-color: var(--foreground);
     width: 1.5em;
     height: 1.5em;
