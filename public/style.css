@@ -782,8 +782,8 @@ a.imprint-text:hover {
 
   /* Modal */
   .modal-content {
-    max-width: 80vw;
-    max-height: 80vh;
+    max-width: 80svw;
+    max-height: 80svh;
     overflow-y: scroll;
   }
 
