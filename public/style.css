@@ -176,7 +176,7 @@ nav {
 .image-container {
   display: grid;
   padding: var(--padding-m);
-  gap: var(--padding-m);
+  gap: var(--padding-xxs);
 }
 
 .grid-one {
@@ -353,6 +353,7 @@ nav {
   display: none;
   align-items: center;
   justify-content: center;
+  z-index: 20;
 }
 
 .modal-content {
@@ -684,7 +685,6 @@ a.imprint-text:hover {
   .image-container {
     display: grid;
     padding: var(--padding-s);
-    gap: var(--padding-s);
   }
 
   .grid-two {
@@ -824,7 +824,6 @@ a.imprint-text:hover {
 
   .image-container {
     display: grid;
-    gap: var(--padding-xs);
   }
 
   .liss-message {
@@ -880,13 +879,4 @@ a.imprint-text:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 48px;
   }
-}
-
-/* Disable iFrame */
-iframe {
-  overflow: hidden;
-  pointer-events: none;
-  display: none;
-  visibility: hidden;
-  border: 1px solid red;
 }
