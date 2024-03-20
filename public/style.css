@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: "Machina";
+  src: url(/public/assets/fonts/Machina/PPNeueMachina-PlainRegular.woff2);
+}
+
+@font-face {
   font-family: "Mono";
   src: url(/public/assets/fonts/IBM/IBMPlexMono-Regular.ttf);
 }
@@ -27,6 +32,7 @@
   --blur-amt-s: 24px;
   --blur-amt-l: 32px;
   --blur-bg-dark: rgba(0, 0, 0, 0.2);
+  --blur-bg-dark-2: rgba(0, 0, 0, 0.7);
   --blur-bg-bright: rgba(255, 255, 255, 0.1);
 
   --message-bubble: #484848;
@@ -87,7 +93,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  padding: var(--padding-m);
+  padding: var(--padding-s);
   display: flex;
   justify-content: space-between;
   gap: 1em;
@@ -98,15 +104,17 @@ nav {
   /* mix-blend-mode: exclusion; */
   -webkit-user-select: none;
   z-index: 500;
+  pointer-events: none;
 }
 
 .nav-link {
   background-color: var(--blur-bg-dark);
   backdrop-filter: blur(var(--blur-amt-s));
   -webkit-backdrop-filter: blur(var(--blur-amt-s));
-  padding: var(--padding-xs) var(--padding-s) var(--padding-xs) var(--padding-s);
-  border-radius: 100px;
+  padding: 8px 10px 6px 10px;
+  border-radius: 6px;
   transition: transform ease 300ms;
+  pointer-events: all;
 }
 
 .nav-link:hover {
@@ -158,7 +166,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  /* mix-blend-mode: exclusion; */
+  /* mix-blend-mode: difference; */
   z-index: 10;
   pointer-events: none;
   display: flex;
@@ -172,7 +180,7 @@ nav {
   background-color: var(--blur-bg-bright);
   backdrop-filter: blur(var(--blur-amt-l));
   -webkit-backdrop-filter: blur(var(--blur-amt-l));
-  padding: var(--padding-xs) var(--padding-l) var(--padding-xs) var(--padding-l);
+  padding: 8px 16px 8px 16px;
   border-radius: 100px;
   font-size: 1.5em;
   margin: var(--padding-m);
@@ -195,6 +203,8 @@ nav {
   font-size: 2.5em;
   margin: var(--padding-l);
   text-transform: uppercase;
+  position: sticky;
+  top: 7.5%;
 }
 
 .image-container {
@@ -240,6 +250,7 @@ nav {
 
 .project-video {
   border-radius: var(--padding-xs);
+  cursor: pointer;
 }
 
 /* Video */
@@ -365,8 +376,8 @@ nav {
 /* --------------------------------------------------------------------------------------- Projects Modal */
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(var(--blur-amt-l));
+  -webkit-backdrop-filter: blur(var(--blur-amt-l));
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -384,23 +395,15 @@ nav {
   min-width: 200px;
   min-height: 100px;
   max-width: 700px;
-  max-height: 900px;
+  max-height: 75dvh;
   background-color: var(--foreground);
   color: var(--background);
-  padding: var(--padding-m);
+  padding: var(--padding-l);
   border-radius: var(--padding-m);
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.modal-close {
-  position: absolute;
-  top: var(--padding-m);
-  right: var(--padding-m);
-  cursor: pointer;
-  font-size: 1.2em;
 }
 
 .modal-title {
@@ -426,9 +429,9 @@ nav {
 
 /* --------------------------------------------------------------------------------------- Lightbox */
 .backdrop-blur {
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  background-color: var(--blur-bg-dark-2);
+  backdrop-filter: blur(var(--blur-amt-l));
+  -webkit-backdrop-filter: blur(var(--blur-amt-l));
 }
 
 .lightbox {
@@ -438,7 +441,6 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
   z-index: 600;
@@ -454,7 +456,7 @@ nav {
   position: absolute;
   top: var(--padding-m);
   right: var(--padding-m);
-  font-size: 1.4em;
+  font-size: 1em;
   color: #d9d9d9;
   background-color: transparent;
   cursor: pointer;
@@ -462,11 +464,11 @@ nav {
 
 .lightbox-trigger {
   cursor: pointer;
+  transition: filter 300ms ease;
 }
 
 .lightbox-trigger:hover {
   filter: brightness(0.9);
-  transition: filter 300ms ease;
 }
 
 .prev-btn {
@@ -504,10 +506,13 @@ nav {
 /* --------------------------------------------------------------------------------------- Footer */
 footer {
   width: 100%;
-  min-height: 5vh;
+  min-height: 12vh;
   margin-top: 2em;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  /* background-color: var(--foreground);
+  color: var(--background); */
 }
 
 .footer-div {
@@ -555,15 +560,23 @@ footer {
 }
 
 .about-title {
-  font-size: 2em;
+  font-size: 1em;
   line-height: 2;
   font-family: "Mono";
   opacity: 0.2;
+  text-transform: lowercase;
+}
+
+.about-title:before {
+  content: "[";
+}
+.about-title:after {
+  content: "]";
 }
 
 .about-text {
-  font-size: 1.2em;
-  line-height: 1.5;
+  font-size: 1em;
+  line-height: 2;
   font-family: "Mono";
   transition: padding-left 250ms ease;
 }
@@ -659,6 +672,7 @@ a.about-text:hover {
   justify-content: center;
   max-width: 60vw;
   gap: 1em;
+  padding: 10em 0px 10em 0px;
 }
 
 .imprint-title {
@@ -687,6 +701,47 @@ a.imprint-text {
 
 a.imprint-text:hover {
   text-decoration: underline;
+}
+
+/* Gimmicks */
+.gimmick-container {
+  background-color: var(--blur-bg-dark);
+  backdrop-filter: blur(var(--blur-amt-s));
+  -webkit-backdrop-filter: blur(var(--blur-amt-s));
+  padding: 8px 10px 6px 10px;
+  border-radius: 100px;
+  position: fixed;
+  bottom: var(--padding-xs);
+  right: 50%;
+  transform: translateX(50%);
+  /* mix-blend-mode: difference; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  min-width: 200px;
+  align-items: center;
+  justify-items: center;
+  z-index: 10;
+}
+
+.gimmick-info {
+  font-size: 0.7em;
+  font-family: "Mono";
+}
+
+#scrollpos {
+  bottom: var(--padding-m);
+  right: var(--padding-m);
+}
+
+#mouseposX {
+  bottom: var(--padding-m);
+  right: calc(var(--padding-m) * 5);
+}
+
+#mouseposY {
+  bottom: var(--padding-m);
+  right: calc(var(--padding-m) * 10);
 }
 
 /* --------------------------------------------------------------------------------------- Mobile ------ iPad */
@@ -811,20 +866,6 @@ a.imprint-text:hover {
     overflow-y: scroll;
   }
 
-  .modal-close {
-    position: fixed;
-    color: var(--background);
-    right: 24px;
-    top: 48px;
-    background-color: var(--foreground);
-    width: 1.5em;
-    height: 1.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-  }
-
   /* Imprint / Privacy Policy */
   .imprint-main {
     padding: 75px var(--padding-m) 75px var(--padding-m);
@@ -903,4 +944,21 @@ a.imprint-text:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 48px;
   }
+}
+
+/* Scroll Animations */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity ease 300ms;
+  transition: transform ease-out 300ms;
+  transition-delay: 100ms;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity ease 300ms;
+  transition: transform ease-out 300ms;
+  transition-delay: 100ms;
 }

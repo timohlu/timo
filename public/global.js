@@ -267,3 +267,59 @@ document.addEventListener('DOMContentLoaded', function () {
     document.head.appendChild(meta);
   }
 });
+
+// Scroll Animations
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      console.log(entry);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+      else {
+        entry.target.classList.remove('show');
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll('.hidden');
+  if (hiddenElements.length > 0) {
+    hiddenElements.forEach((el) => observer.observe(el));
+  } else {
+    console.error("No elements with the 'hidden' class found.");
+  }
+});
+
+// // Display Scroll Position
+// document.addEventListener("DOMContentLoaded", function () {
+//   let scrollPosText = document.getElementById("scrollpos");
+
+//   // Function to update scroll position
+//   function updateScrollPosition() {
+//     var top = window.scrollY || document.documentElement.scrollTop;
+//     scrollPosText.innerHTML = "S: " + top;
+//   }
+
+//   // Initial update
+//   updateScrollPosition();
+
+//   // Update scroll position when the user scrolls
+//   window.addEventListener("scroll", updateScrollPosition);
+// });
+
+// // Mouse
+// document.addEventListener("DOMContentLoaded", function () {
+//   let mousePosTextX = document.getElementById("mouseposX");
+//   let mousePosTextY = document.getElementById("mouseposY");
+
+//   // Function to update mouse position
+//   function updateMousePos(e) {
+//     var posX = e.clientX;
+//     var posY = e.clientY;
+//     mousePosTextX.innerHTML = "X: " + posX;
+//     mousePosTextY.innerHTML = "Y: " + posY;
+//   }
+
+//   // Update mouse position when the user moves the mouse
+//   window.addEventListener("mousemove", updateMousePos);
+// });
