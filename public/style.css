@@ -28,11 +28,13 @@
   --padding-s: 12px;
   --padding-m: 16px;
   --padding-l: 24px;
+  --padding-xl: 36px;
 
   --blur-amt-s: 24px;
   --blur-amt-l: 32px;
+  --blur-amt-xl: 64px;
   --blur-bg-dark: rgba(0, 0, 0, 0.2);
-  --blur-bg-dark-2: rgba(0, 0, 0, 0.7);
+  --blur-bg-dark-2: rgba(0, 0, 0, 0.5);
   --blur-bg-bright: rgba(255, 255, 255, 0.1);
 
   --message-bubble: #484848;
@@ -132,7 +134,7 @@ nav {
   scroll-snap-type: block mandatory;
 }
 
-.main-home::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 
@@ -180,20 +182,29 @@ nav {
   background-color: var(--blur-bg-bright);
   backdrop-filter: blur(var(--blur-amt-l));
   -webkit-backdrop-filter: blur(var(--blur-amt-l));
-  padding: 8px 16px 8px 16px;
+  padding: 8px 24px 8px 24px;
   border-radius: 100px;
   font-size: 1.5em;
-  margin: var(--padding-m);
+  animation-name: pageload;
+  animation-duration: 1s;
 }
 
-/* .project-title:before {
-  content: "–";
-} */
+@keyframes pageload {
+  from {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 /* --------------------------------------------------------------------------------------- Projects */
 .header-container {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -205,6 +216,19 @@ nav {
   text-transform: uppercase;
   position: sticky;
   top: 7.5%;
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 .image-container {
@@ -304,7 +328,7 @@ nav {
 .liss-container {
   display: flex;
   flex-direction: column;
-  gap: var(--padding-m);
+  gap: var(--padding-xxs);
 }
 
 .liss-text-div {
@@ -314,7 +338,7 @@ nav {
 }
 
 .liss-text {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.4;
 }
 
@@ -327,6 +351,11 @@ nav {
 .liss-text-container {
   display: flex;
   flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1em;
+  border-radius: 8px;
+  height: 60dvh;
+  overflow: scroll;
 }
 
 .right {
@@ -344,7 +373,7 @@ nav {
 }
 
 .liss-message {
-  font-size: 1.2em;
+  font-size: 1em;
   display: flex;
   flex-direction: column;
   gap: var(--padding-xs);
@@ -375,7 +404,7 @@ nav {
 
 /* --------------------------------------------------------------------------------------- Projects Modal */
 .modal {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--blur-bg-dark-2);
   backdrop-filter: blur(var(--blur-amt-l));
   -webkit-backdrop-filter: blur(var(--blur-amt-l));
   width: 100vw;
@@ -393,33 +422,31 @@ nav {
 
 .modal-content {
   min-width: 200px;
-  min-height: 100px;
-  max-width: 700px;
-  max-height: 75dvh;
-  background-color: var(--foreground);
-  color: var(--background);
-  padding: var(--padding-l);
+  max-width: 550px;
+  max-height: 90dvh;
+  background-color: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--foreground);
+  padding: var(--padding-xl);
   border-radius: var(--padding-m);
   position: relative;
   display: flex;
+  overflow: scroll;
+  overscroll-behavior: contain;
   flex-direction: column;
-  gap: 8px;
-}
-
-.modal-title {
-  font-size: 2em;
-  font-family: Bold;
-  line-height: 1.4;
+  gap: 1.6em;
 }
 
 .modal-text-div {
-  margin-bottom: 16px;
+  color: inherit;
 }
 
 .modal-info {
-  font-size: 1.2em;
+  font-size: 1em;
+  opacity: 0.5;
   line-height: 1.2;
-  font-family: Bold;
+  margin-bottom: 0.5em;
+  /* text-transform: uppercase; */
 }
 
 .modal-text {
@@ -511,8 +538,6 @@ footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  /* background-color: var(--foreground);
-  color: var(--background); */
 }
 
 .footer-div {
@@ -539,6 +564,7 @@ footer {
   flex-direction: column;
   scroll-snap-type: block mandatory;
   overscroll-behavior: contain;
+  animation: fadeUp 1s ease;
 }
 
 .about-divider {
@@ -592,11 +618,6 @@ a.about-text:hover {
   transition: padding-left 250ms ease;
 }
 
-#animate-text-in {
-  opacity: 0.2;
-  transition: opacity 1.5s ease-in-out;
-}
-
 .about-footer {
   line-height: 2;
 }
@@ -606,6 +627,7 @@ a.about-text:hover {
   line-height: 1.5;
   margin-top: 1em;
   font-family: "Mono";
+  animation-delay: 300ms;
 }
 
 .company-grid {
@@ -670,7 +692,7 @@ a.about-text:hover {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  max-width: 60vw;
+  max-width: 50vw;
   gap: 1em;
   padding: 10em 0px 10em 0px;
 }
@@ -682,13 +704,13 @@ a.about-text:hover {
 }
 
 .imprint-subtitle {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 2;
   font-family: "Bold";
 }
 
 .imprint-text {
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: start;
   line-height: 1.2;
 }
@@ -703,7 +725,7 @@ a.imprint-text:hover {
   text-decoration: underline;
 }
 
-/* Gimmicks */
+/* Gimmicks
 .gimmick-container {
   background-color: var(--blur-bg-dark);
   backdrop-filter: blur(var(--blur-amt-s));
@@ -714,7 +736,6 @@ a.imprint-text:hover {
   bottom: var(--padding-xs);
   right: 50%;
   transform: translateX(50%);
-  /* mix-blend-mode: difference; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
@@ -743,7 +764,7 @@ a.imprint-text:hover {
   bottom: var(--padding-m);
   right: calc(var(--padding-m) * 10);
 }
-
+ */
 /* --------------------------------------------------------------------------------------- Mobile ------ iPad */
 @media screen and (max-width: 1000px) {
   @media (orientation: landscape) {
@@ -872,7 +893,7 @@ a.imprint-text:hover {
   }
 
   .imprint-container {
-    max-width: 90vw;
+    max-width: 80vw;
   }
 
   .imprint-text {
@@ -950,15 +971,37 @@ a.imprint-text:hover {
 .hidden {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity ease 300ms;
-  transition: transform ease-out 300ms;
-  transition-delay: 100ms;
+  transition: opacity ease 600ms;
+  transition: transform ease-out 600ms;
 }
 
 .show {
   opacity: 1;
   transform: translateY(0px);
-  transition: opacity ease 300ms;
-  transition: transform ease-out 300ms;
-  transition-delay: 100ms;
+  transition: opacity ease 600ms;
+  transition: transform ease-out 600ms;
+}
+
+/* Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+/* Use: "data-lenis-prevent" for elements that should ignore Lenis */
+
+.lenis.lenis-stopped {
+  overflow: scroll;
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

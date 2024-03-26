@@ -4,16 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="icon" href="/public/assets/logo/safari/Logo-Box-Bright-2.ico" sizes="any">
   <link rel="apple-touch-icon" href="/public/assets/logo/Logo-Box-Bright-2@2x.jpg" sizes="any">
   <link rel="icon" href="/public/assets/logo/No-BG-Bright-1.svg" type="image/svg+xml">
   <link rel=”mask-icon” href="public/assets/logo/No-BG-Bright-1.svg" color="#d9d9d9" type="image/svg+xml">
+  
   <title>→ Liss</title>
   <meta name="description" content="'Liss' is my graduation project from art school, images created by me and the texts written by a local author." />
   <meta name="keywords" content="3D rendering, 3D design, architectural visualization, interior design rendering, product visualization, CGI services, rendering." />
+  
   <link rel="stylesheet" href="/public/style.css">
+  
   <script defer src="/public/global.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 </head>
 
 <body>
@@ -32,15 +36,14 @@
 
     <!-- Modal -->
     <div class="modal" id="myModal">
-      <button class="close-btn" id="close-btn">close</button>
+      <span class="close-btn" id="closeModal">close</span>
       <div class="modal-content">
-        <p class="modal-title">Credits</p>
         <div class="modal-text-div">
           <p class="modal-info">Visuals & Idea</p>
           <p class="modal-text">Timo Hlubek</p>
         </div>
         <div class="modal-text-div">
-          <p class="modal-info">Text</p>
+          <p class="modal-info">Texte</p>
           <p class="modal-text">Lorenz Müller</p>
         </div>
       </div>
@@ -60,9 +63,9 @@
         <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Suite_HD_M_L_F_001.webp" alt draggable="false" loading="lazy">
         <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Suite_HD_CU-1_L_F_001.webp" alt draggable="false" loading="lazy">
         <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/liss/assets/Suite_HD_CU-2_L_F_001.webp" alt draggable="false" loading="lazy">
-        <div class="liss-text-div">
+        <div class="liss-text-div lenis">
           <p class="liss-title">Suite</p>
-          <div class="liss-text-container">
+          <div data-lenis-prevent class="liss-text-container lenis-stop">
             <div class="liss-message right">
               <p class="liss-message-author right">Polizist</p>
               <p class="liss-message-content right">Wie ging es weiter, nachdem Sie die Prostituierte erschlagen haben?

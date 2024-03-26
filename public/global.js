@@ -89,12 +89,19 @@ document.getElementById("showCredits").addEventListener("click", function (event
   saveScrollPosition();
 });
 
-document.getElementById("closeModal").addEventListener("click", function (event) {
-  event.preventDefault();
+document.getElementById("closeModal").addEventListener("click", closeModal);
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
+
+function closeModal() {
   document.getElementById("myModal").style.display = "none";
   restoreScrollPosition();
   enableScroll();
-});
+}
+
 
 window.addEventListener("click", function (event) {
   var modal = document.getElementById("myModal");
