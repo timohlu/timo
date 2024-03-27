@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link rel="icon" href="/public/assets/logo/safari/Logo-Box-Bright-2.ico" sizes="any">
   <link rel="apple-touch-icon" href="/public/assets/logo/Logo-Box-Bright-2@2x.jpg" sizes="any">
   <link rel="icon" href="/public/assets/logo/No-BG-Bright-1.svg" type="image/svg+xml">
   <link rel=”mask-icon” href="public/assets/logo/No-BG-Bright-1.svg" color="#d9d9d9" type="image/svg+xml">
-  
+
   <title>→ Halo Edition</title>
   <meta name="description" content="'Halo Edition' is a project completed at Anti Studio, the subsidiary company of Services Généraux, a design studio based in Paris." />
   <meta name="keywords" content="3D rendering, 3D design, architectural visualization, interior design rendering, product visualization, CGI services, photorealistic rendering, animation, paris, paris france, services généraux." />
-  
+
   <link rel="stylesheet" href="/public/style.css">
-  
+
   <script defer src="/public/global.js"></script>
   <script defer src="/halo/video-controls.js"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -29,7 +29,7 @@
 
   <main>
     <!-- Hero -->
-    <div class="header-container">
+    <div class="header-container" id="resizeElement">
       <a class="header-text" id="showCredits">"Halo Edition"</a>
       <p class="header-text">Anti Studio</p>
       <p class="header-text">2023</p>
@@ -54,7 +54,7 @@
       <button class="next-btn" id="next-btn">→</button>
     </div>
 
-    <!-- Images -->
+    <!-- Images & Videos -->
     <div class="image-container grid-two">
       <div class="video-container full-width">
         <video id="video-one" class="project-image project-video" src="/projects/halo-edition/assets/videos/HALO_EDITION_FILM_16-9.mp4" loop nocontrols playsinline muted autoplay poster="/projects/halo-edition/assets/images/HaloEdition_Stills_DP_Video-1_Poster_text_blur.webp"></video>

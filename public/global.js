@@ -330,3 +330,28 @@ document.addEventListener('DOMContentLoaded', function () {
 //   // Update mouse position when the user moves the mouse
 //   window.addEventListener("mousemove", updateMousePos);
 // });
+
+// Resize Header on Scroll
+document.addEventListener('scroll', function () {
+  const fromTranslateY = 0;
+  const toTranslateY = 300;
+  const resizeElement = document.querySelector('#resizeElement');
+
+  const elementTop = resizeElement.getBoundingClientRect().top + window.scrollY;
+  const startScroll = elementTop;
+  const endScroll = elementTop + 700;
+
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition > startScroll && scrollPosition < endScroll) {
+    const scrollRange = endScroll - startScroll;
+    const translateYRange = toTranslateY - fromTranslateY;
+    const scrollFraction = (scrollPosition - startScroll) / scrollRange;
+    const newTranslateY = fromTranslateY + translateYRange * scrollFraction;
+    resizeElement.style.transform = `translateY(${newTranslateY}px)`;
+  } else if (scrollPosition <= startScroll) {
+    resizeElement.style.transform = `translateY(${fromTranslateY}px)`;
+  } else if (scrollPosition >= endScroll) {
+    resizeElement.style.transform = `translateY(${toTranslateY}px)`;
+  }
+});
