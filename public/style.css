@@ -20,6 +20,7 @@
 
 :root {
   --foreground: #111;
+  --subtle-text: rgba(0, 0, 0, 0.3);
   --middleground: #1e1e1e;
   --background: #d9d9d9;
 
@@ -589,7 +590,7 @@ footer {
   font-size: 1em;
   line-height: 2;
   font-family: "Mono";
-  opacity: 0.2;
+  color: var(--subtle-text);
   text-transform: lowercase;
 }
 
@@ -862,7 +863,6 @@ a.imprint-text:hover {
   .about-title {
     font-size: 1em;
     line-height: 2;
-    opacity: 0.3;
   }
 
   .about-text {
