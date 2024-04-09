@@ -19,10 +19,20 @@
 }
 
 :root {
+  /* Monotone */
   --foreground: #111;
-  --subtle-text: rgba(0, 0, 0, 0.3);
+  --subtle-text: rgba(255, 255, 255, 0.3);
   --middleground: #1e1e1e;
   --background: #d9d9d9;
+
+  /* Colors */
+  --brown: #583928;
+  --lightbrown: #734a33;
+  --beige: #9f967c;
+  --lightblue: #4376a1;
+  --blue: #1e4ba5;
+  --yellow: #e4b13e;
+  --red: #bf3b29;
 
   --padding-xxs: 4px;
   --padding-xs: 8px;
@@ -169,7 +179,6 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  /* mix-blend-mode: difference; */
   z-index: 10;
   pointer-events: none;
   display: flex;
@@ -554,8 +563,8 @@ footer {
 
 /* --------------------------------------------------------------------------------------- About */
 .about-body {
-  background-color: var(--foreground);
-  color: var(--background);
+  background-color: var(--brown);
+  color: var(--foreground);
 }
 
 .about-main {
@@ -602,7 +611,7 @@ footer {
 }
 
 .about-text {
-  font-size: 1em;
+  font-size: 1.2em;
   line-height: 2;
   font-family: "Mono";
   transition: padding-left 250ms ease;
@@ -661,7 +670,7 @@ a.about-text:hover {
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.7em;
-  color: var(--background);
+  color: var(--subtle-text);
   font-family: "Mono";
   text-transform: uppercase;
 }
