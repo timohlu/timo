@@ -113,21 +113,6 @@ window.addEventListener("click", function (event) {
   }
 });
 
-
-// function preventContextMenu(event) {
-//   event.preventDefault();
-// }
-
-// document.addEventListener("contextmenu", preventContextMenu);
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   var images = document.querySelectorAll('img');
-
-//   images.forEach(function (image) {
-//     image.setAttribute('draggable', 'false');
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -246,7 +231,7 @@ function initSmoothScrolling() {
 
   const init = () => {
     lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.2,
       smoothWheel: true,
     });
 
@@ -296,40 +281,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error("No elements with the 'hidden' class found.");
   }
 });
-
-// // Display Scroll Position
-// document.addEventListener("DOMContentLoaded", function () {
-//   let scrollPosText = document.getElementById("scrollpos");
-
-//   // Function to update scroll position
-//   function updateScrollPosition() {
-//     var top = window.scrollY || document.documentElement.scrollTop;
-//     scrollPosText.innerHTML = "S: " + top;
-//   }
-
-//   // Initial update
-//   updateScrollPosition();
-
-//   // Update scroll position when the user scrolls
-//   window.addEventListener("scroll", updateScrollPosition);
-// });
-
-// // Mouse
-// document.addEventListener("DOMContentLoaded", function () {
-//   let mousePosTextX = document.getElementById("mouseposX");
-//   let mousePosTextY = document.getElementById("mouseposY");
-
-//   // Function to update mouse position
-//   function updateMousePos(e) {
-//     var posX = e.clientX;
-//     var posY = e.clientY;
-//     mousePosTextX.innerHTML = "X: " + posX;
-//     mousePosTextY.innerHTML = "Y: " + posY;
-//   }
-
-//   // Update mouse position when the user moves the mouse
-//   window.addEventListener("mousemove", updateMousePos);
-// });
 
 // Resize Header on Scroll
 document.addEventListener('scroll', function () {
