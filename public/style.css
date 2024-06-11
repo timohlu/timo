@@ -244,6 +244,12 @@ nav {
   top: 7.5%;
   animation: fadeUp 1s ease;
   pointer-events: all;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#showCredits {
+  cursor: pointer;
 }
 
 @keyframes fadeUp {
@@ -532,6 +538,7 @@ nav {
   user-select: none;
   -webkit-user-select: none;
   transition: 100ms ease;
+  margin-right: 1em;
 }
 
 .prev-btn:active {
@@ -548,11 +555,18 @@ nav {
   user-select: none;
   -webkit-user-select: none;
   transition: 100ms ease;
+  margin-left: 1em;
 }
 
 .next-btn:active {
   transform: scale(0.9);
   transition: 100ms ease;
+}
+
+.lightbox-count {
+  position: absolute;
+  bottom: 3em;
+  font-family: Mono;
 }
 
 /* --------------------------------------------------------------------------------------- Footer */
@@ -867,6 +881,10 @@ a.imprint-text:hover {
   }
 
   .next-btn {
+    display: none;
+  }
+
+  .lightbox-count {
     display: none;
   }
 

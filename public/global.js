@@ -1,12 +1,12 @@
 // -------------------------------------------------------------------------- INFO MODAL
+let lenis;
+
 function disableScroll() {
-  document.body.style.overflow = "hidden";
-  document.documentElement.style.overflow = "hidden";
+  if (lenis) lenis.stop();
 }
 
 function enableScroll() {
-  document.body.style.overflow = "";
-  document.documentElement.style.overflow = "";
+  if (lenis) lenis.start();
 }
 
 function checkModalVisibility() {
@@ -19,28 +19,32 @@ function checkModalVisibility() {
   }
 }
 
-document
-  .getElementById("showCredits")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("myModal").style.display = "flex";
-    checkModalVisibility();
-  });
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+  restoreScrollPosition();
+  enableScroll();
+}
 
-document
-  .getElementById("closeModal")
-  .addEventListener("click", function (event) {
-    event.preventDefault();
-    document.getElementById("myModal").style.display = "none";
-    enableScroll();
-  });
+document.getElementById("showCredits").addEventListener("click", function (event) {
+  event.preventDefault();
+  document.getElementById("myModal").style.display = "flex";
+  checkModalVisibility();
+  saveScrollPosition();
+});
+
+document.getElementById("closeModal").addEventListener("click", closeModal);
 
 window.addEventListener("click", function (event) {
   var modal = document.getElementById("myModal");
   if (event.target === modal) {
     event.preventDefault();
-    modal.style.display = "none";
-    enableScroll();
+    closeModal();
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
   }
 });
 
@@ -48,7 +52,7 @@ window.addEventListener("click", function (event) {
 function preventContextMenu(event) {
   const body = document.getElementById("body");
   event.preventDefault();
-  console.log("Please don't steal the images!")
+  console.log("Please don't steal the images!");
 }
 
 document.addEventListener("contextmenu", preventContextMenu);
@@ -62,57 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // -------------------------------------------------------------------------- LIGHTBOX
-function disableScroll() {
-  document.body.style.overflow = "hidden";
-  document.documentElement.style.overflow = "hidden";
-}
-
-function enableScroll() {
-  document.body.style.overflow = "";
-  document.documentElement.style.overflow = "";
-}
-
-function checkModalVisibility() {
-  var modal = document.getElementById("myModal");
-
-  if (modal && modal.style.display === "flex") {
-    disableScroll();
-  } else {
-    enableScroll();
-  }
-}
-
-document.getElementById("showCredits").addEventListener("click", function (event) {
-  event.preventDefault();
-  document.getElementById("myModal").style.display = "flex";
-  checkModalVisibility();
-  saveScrollPosition();
-});
-
-document.getElementById("closeModal").addEventListener("click", closeModal);
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeModal();
-  }
-});
-
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-  restoreScrollPosition();
-  enableScroll();
-}
-
-
-window.addEventListener("click", function (event) {
-  var modal = document.getElementById("myModal");
-  if (event.target === modal) {
-    event.preventDefault();
-    modal.style.display = "none";
-    restoreScrollPosition();
-    enableScroll();
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
@@ -120,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
   const triggerElements = document.querySelectorAll(".lightbox-trigger");
+  const imgNumber = document.getElementById("lightbox-img-nr");
   let currentIndex = 0;
   let imagesArray = [];
 
@@ -171,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
     lightbox.style.display = "flex";
     lightboxImg.style.objectFit = "contain";
     imagesArray = Array.from(triggerElements).map((trigger) => trigger.getAttribute("src"));
+    updateImageNumber();
   }
 
   function closeLightbox() {
@@ -187,24 +142,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     const imgUrl = imagesArray[currentIndex];
     lightboxImg.setAttribute("src", imgUrl);
+    updateImageNumber();
   }
 
-  function saveScrollPosition() {
-    localStorage.setItem("scrollPosition", window.scrollY);
-  }
-
-  function restoreScrollPosition() {
-    const scrollPosition = localStorage.getItem("scrollPosition");
-    if (scrollPosition) {
-      window.scrollTo(0, scrollPosition);
-      localStorage.removeItem("scrollPosition");
-    }
+  function updateImageNumber() {
+    imgNumber.textContent = `${currentIndex + 1} / ${imagesArray.length}`;
   }
 });
 
 // -------------------------------------------------------------------------- NAVIGATION
 var lastScrollTop;
-
 var navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", function () {
@@ -227,8 +174,6 @@ function isMobileDevice() {
 }
 
 function initSmoothScrolling() {
-  let lenis;
-
   const init = () => {
     lenis = new Lenis({
       lerp: 0.2,
@@ -264,11 +209,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      console.log(entry);
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
-      }
-      else {
+      } else {
         entry.target.classList.remove('show');
       }
     });
@@ -306,3 +249,15 @@ document.addEventListener('scroll', function () {
     resizeElement.style.transform = `translateY(${toTranslateY}px)`;
   }
 });
+
+function saveScrollPosition() {
+  localStorage.setItem("scrollPosition", window.scrollY);
+}
+
+function restoreScrollPosition() {
+  const scrollPosition = localStorage.getItem("scrollPosition");
+  if (scrollPosition) {
+    window.scrollTo(0, scrollPosition);
+    localStorage.removeItem("scrollPosition");
+  }
+}
