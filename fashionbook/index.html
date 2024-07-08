@@ -23,26 +23,29 @@
 <body>
   <nav id="navbar">
     <a href="/" class="nav-link" aria-label="Return to Homepage">Home</a>
+    <a href="/" class="nav-link" aria-label="Return to Homepage">
+      <img src="/public/assets/logo/No-BG-Bright-1.svg" alt="" class="nav-logo">
+    </a>
     <a href="/about" class="nav-link" aria-label="Go to About page">About</a>
   </nav>
 
   <main>
     <!-- Hero -->
     <div class="header-container" id="resizeElement">
-      <a class="header-text" id="showCredits">"Fashionbook"</a>
+      <p class="header-text">Fashionbook</p>
       <p class="header-text">Services Généraux</p>
       <p class="header-text">2023</p>
     </div>
-    <!-- <div class="gimmick-container">
-      <span class="gimmick-info" id="mouseposX">X: 0</span>
-      <span class="gimmick-info" id="mouseposY">Y: 0</span>
-      <span class="gimmick-info" id="scrollpos">S: 0</span>
-    </div> -->
+
+    <!-- Info -->
+    <div class="project-info-container">
+      <p class="project-info" id="showCredits" >Credits</p>
+    </div>
 
     <!-- Modal -->
     <div class="modal" id="myModal">
       <span class="close-btn" id="closeModal">close</span>
-      <div class="modal-content">
+      <div class="modal-content credits-big" id="scrollableElement">
         <!-- Creative Direction + Photography -->
         <div class="modal-text-div">
           <p class="modal-info">Creative Direction + Photography</p>
@@ -118,10 +121,12 @@
     <!-- Lightbox -->
     <div class="lightbox backdrop-blur" id="lightbox">
       <button class="close-btn" id="close-btn">close</button>
-      <button class="prev-btn" id="prev-btn">←</button>
       <img src="" alt="Lightbox Image" class="lightbox-img" id="lightbox-img" draggable="false" loading="lazy">
-      <button class="next-btn" id="next-btn">→</button>
-      <p class="lightbox-count" id="lightbox-img-nr">[1/12]</p>
+      <div class="lightbox-controls">
+        <button class="prev-btn" id="prev-btn">←</button>
+        <p class="lightbox-count" id="lightbox-img-nr">[1/12]</p>
+        <button class="next-btn" id="next-btn">→</button>
+      </div>
     </div>
 
     <!-- Images -->
@@ -153,16 +158,11 @@
       <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/fashionbook/assets/images/petroleum/2160x2700_PETROL7457.webp" alt="Petroleum: Woman" draggable="false" loading="lazy">
       <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/fashionbook/assets/images/petroleum/2160x2700_PETROL7683.webp" alt="Petroleum: Man" draggable="false" loading="lazy">
     </div>
+    <div class="image-container grid-two">
+      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/fashionbook/assets/images/book/BOOK_OPEN_FASHIONBOOK_4K_02_Main_0009_3000x-T.webp" alt="Petroleum: Man" draggable="false" loading="lazy">
+      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/fashionbook/assets/images/book/BOOK_OPEN_FASHIONBOOK_4K_05_Main_0009_3000x-T.webp" alt="Petroleum: Man" draggable="false" loading="lazy">
+    </div>
   </main>
-  <footer>
-    <div class="footer-div">
-      <p class="footer-text">Timo Hlubek</p>
-    </div>
-    <div class="footer-div">
-      <a href="/legal/imprint/" class="footer-text" aria-label="Visit Impressum">Impressum</a>
-      <a href="/legal/privacy/" class="footer-text" aria-label="Visit Datenschutzerklärung">Datenschutzerklärung</a>
-    </div>
-  </footer>
 </body>
 
 </html>

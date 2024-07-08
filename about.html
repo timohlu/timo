@@ -15,7 +15,6 @@
   <meta name="keywords" content="about, about me, 3D rendering, 3D design, architectural visualization, interior design rendering, product visualization, CGI services, photorealistic rendering, animation." />
 
   <link rel="stylesheet" href="/public/style.css">
-
   <script defer src="/public/global.js"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
 </head>
@@ -23,36 +22,33 @@
 <body class="about-body">
   <nav id="navbar">
     <a href="/" class="nav-link" aria-label="Return to Homepage">Home</a>
+    <a href="/" class="nav-link" aria-label="Return to Homepage">
+      <img src="/public/assets/logo/No-BG-Bright-1.svg" alt="" class="nav-logo">
+    </a>
     <a href="/about" class="nav-link" aria-label="Go to About page">About</a>
   </nav>
 
-  <main class="about-main">
-    <section class="about-divider">
-      <div class="about-text-container">
-        <p class="about-title">I Do</p>
+  <main class="main-about" id="main-about-container">
+    <section class="about-section">
+      <div class="offer-container">
         <p class="about-text">Creative Direction</p>
         <p class="about-text">3D Rendering</p>
         <p class="about-text">3D Animation</p>
         <p class="about-text">Webdesign</p>
         <p class="about-text">Webdevelopment</p>
       </div>
-      <span class="arrow-down">scroll for more</span>
     </section>
-    <section class="about-divider">
-      <div class="about-text-container">
-        <p class="about-title">Selected References</p>
-        <div class="company-grid">
-          <img src="/public/assets/svg/companies/Mercedes_Offwhite.svg" alt="" class="company-logo" draggable="false">
-          <img src="/public/assets/svg/companies/HaloEdition_Offwhite.svg" alt="" class="company-logo small-logo" draggable="false">
-          <img src="/public/assets/svg/companies/Nike_Offwhite.svg" alt="" class="company-logo medium-logo" draggable="false">
-          <img src="/public/assets/svg/companies/Nike-Jordan_Offwhite.svg" alt="" class="company-logo" draggable="false">
-          <img src="/public/assets/svg/companies/Seed_Offwhite.svg" alt="" class="company-logo medium-logo" draggable="false">
-        </div>
+    <section class="about-section">
+      <div class="company-grid">
+        <img src="/public/assets/svg/companies/Mercedes_Offblack.svg" alt="" class="company-logo" draggable="false">
+        <img src="/public/assets/svg/companies/HaloEdition_Offblack.svg" alt="" class="company-logo small-logo" draggable="false">
+        <img src="/public/assets/svg/companies/Nike_Offblack.svg" alt="" class="company-logo medium-logo" draggable="false">
+        <img src="/public/assets/svg/companies/Nike-Jordan_Offblack.svg" alt="" class="company-logo" draggable="false">
+        <img src="/public/assets/svg/companies/Seed_Offblack.svg" alt="" class="company-logo medium-logo" draggable="false">
       </div>
     </section>
-    <section class="about-divider">
-      <div class="about-text-container">
-        <p class="about-title">Contact</p>
+    <section class="about-section social-links">
+      <div class="footer-seperator">
         <a href="&#109;a&#105;l&#116;&#111;:&#116;&#105;&#109;&#111;&#104;&#108;&#117;&#57;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" target="_blank" class="about-text">Email</a>
         <a href="https://www.instagram.com/timohlubek" target="_blank" class="about-text">Instagram</a>
         <a href="https://www.behance.net/timohlubek" target="_blank" class="about-text">Behance</a>
@@ -60,16 +56,19 @@
         <a href="https://www.cosmos.so/you" target="_blank" class="about-text">Cosmos</a>
       </div>
     </section>
-    <section class="about-divider">
-      <div class="about-text-container">
-        <p class="about-title">Boring Stuff</p>
-        <p class="footer-text about-footer">© Timo Hlubek</p>
-        <a href="/legal/imprint/" class="footer-text about-footer" aria-label="Visit Impressum">Impressum</a>
-        <a href="/legal/privacy/" class="footer-text about-footer" aria-label="Visit Datenschutzerklärung">Datenschutzerklärung</a>
-        <img class="logo-small" src="/public/assets/logo/No-BG-Bright-1.svg" alt="Timo Logo" draggable="false">
-      </div>
-    </section>
   </main>
+  <div class="about-footer">
+    <div class="footer-seperator">
+      <div class="work-status unavailable"></div>
+      <p class="footer-text">Currently unavailable for Work</p>
+    </div>
+    <div class="footer-seperator">
+      <p class="footer-text" id="time"></p>
+    </div>
+    <div class="footer-seperator">
+      <p class="footer-text">Timo Hlubek 2024 ©</p>
+    </div>
+  </div>
 </body>
 
 </html>

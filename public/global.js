@@ -1,51 +1,95 @@
-// -------------------------------------------------------------------------- INFO MODAL
+// Check if the device is a mobile device
+function isMobileDevice() {
+  return /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+}
+
+// Check if the device is a touch device
+function isTouchDevice() {
+  return 'ontouchstart' in window || navigator.maxTouchPoints;
+}
+
+// Initialize smooth scrolling
 let lenis;
 
+function initSmoothScrolling() {
+  if (!isTouchDevice()) {
+    lenis = new Lenis({
+      lerp: 0.2,
+      smoothWheel: true,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }
+}
+
+// Function to disable smooth scrolling and body overflow
 function disableScroll() {
   if (lenis) lenis.stop();
+  document.body.style.overflow = 'hidden';
 }
 
+// Function to enable smooth scrolling and restore body overflow
 function enableScroll() {
   if (lenis) lenis.start();
+  document.body.style.overflow = '';
 }
 
-function checkModalVisibility() {
-  var modal = document.getElementById("myModal");
+// DOMContentLoaded event listener
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize smooth scrolling if not a mobile device and not a touch device
+  if (!isMobileDevice() && !isTouchDevice()) {
+    initSmoothScrolling();
+  }
 
-  if (modal && modal.style.display === "flex") {
-    disableScroll();
-  } else {
+  // Check modal visibility and adjust scrolling
+  function checkModalVisibility() {
+    var modal = document.getElementById("myModal");
+    if (modal && modal.style.display === "flex") {
+      disableScroll();
+    } else {
+      enableScroll();
+    }
+  }
+
+  // Close modal and restore scrolling
+  function closeModal() {
+    document.getElementById("myModal").style.display = "none";
     enableScroll();
   }
-}
 
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-  restoreScrollPosition();
-  enableScroll();
-}
-
-document.getElementById("showCredits").addEventListener("click", function (event) {
-  event.preventDefault();
-  document.getElementById("myModal").style.display = "flex";
-  checkModalVisibility();
-  saveScrollPosition();
-});
-
-document.getElementById("closeModal").addEventListener("click", closeModal);
-
-window.addEventListener("click", function (event) {
-  var modal = document.getElementById("myModal");
-  if (event.target === modal) {
+  // Event listener for showing modal
+  document.getElementById("showCredits").addEventListener("click", function (event) {
     event.preventDefault();
-    closeModal();
-  }
-});
+    document.getElementById("myModal").style.display = "flex";
+    checkModalVisibility();
+    // Save scroll position if needed
+  });
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeModal();
-  }
+  // Event listener for closing modal
+  document.getElementById("closeModal").addEventListener("click", closeModal);
+
+  // Close modal on outside click
+  window.addEventListener("click", function (event) {
+    var modal = document.getElementById("myModal");
+    if (event.target === modal) {
+      event.preventDefault();
+      closeModal();
+    }
+  });
+
+  // Close modal on Escape key press
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
 });
 
 // -------------------------------------------------------------------------- IMAGE PROTECTION
@@ -151,58 +195,26 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // -------------------------------------------------------------------------- NAVIGATION
-var lastScrollTop;
+var lastScrollTop = 0;
 var navbar = document.getElementById("navbar");
+var animationInProgress = false;
 
 window.addEventListener("scroll", function () {
+  if (animationInProgress) return;
+  animationInProgress = true;
+
   var scrollTop = window.scrollY || document.documentElement.scrollTop;
 
   if (scrollTop > lastScrollTop && scrollTop > 200) {
-    navbar.style.transform = "translateY(-100px)";
+    navbar.style.transform = "translate(-50%, -100px)";
   } else {
-    navbar.style.transform = "translateY(0px)";
+    navbar.style.transform = "translate(-50%, 0px)";
   }
 
+  setTimeout(() => {
+    animationInProgress = false;
+  }, 500); // Ensure this matches the CSS transition duration
   lastScrollTop = scrollTop;
-});
-
-// -------------------------------------------------------------------------- MOBILE OR DESKTOP
-function isMobileDevice() {
-  return /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  );
-}
-
-function initSmoothScrolling() {
-  const init = () => {
-    lenis = new Lenis({
-      lerp: 0.2,
-      smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  };
-
-  init();
-}
-
-if (!isMobileDevice()) {
-  initSmoothScrolling();
-}
-
-// Prevent iFrame
-document.addEventListener('DOMContentLoaded', function () {
-  if (window === window.top) {
-    var meta = document.createElement('meta');
-    meta.setAttribute('http-equiv', 'X-Frame-Options');
-    meta.setAttribute('content', 'DENY');
-    document.head.appendChild(meta);
-  }
 });
 
 // Scroll Animations
@@ -261,3 +273,20 @@ function restoreScrollPosition() {
     localStorage.removeItem("scrollPosition");
   }
 }
+
+//---------------------------------------------------------- TIME
+function updateTime() {
+  const timeElement = document.getElementById('time');
+  if (timeElement) {
+    const currentTime = new Date();
+    const hours = currentTime.getHours().toString().padStart(2, '0');
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    // const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+    const formattedTime = `${hours}:${minutes}`;
+    // const formattedTime = `${hours}:${minutes}:${seconds}`; // Seconds added
+    timeElement.textContent = formattedTime;
+  }
+}
+updateTime();
+
+setInterval(updateTime, 1000);
