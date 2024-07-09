@@ -213,7 +213,7 @@ window.addEventListener("scroll", function () {
 
   setTimeout(() => {
     animationInProgress = false;
-  }, 500); // Ensure this matches the CSS transition duration
+  }, 500);
   lastScrollTop = scrollTop;
 });
 

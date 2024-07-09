@@ -1021,6 +1021,10 @@ a.imprint-text:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 48px;
   }
+
+  .footer-seperator {
+    flex-direction: column;
+  }
 }
 
 /* Scroll Animations */
