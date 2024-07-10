@@ -117,7 +117,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   gap: 1em;
-  width: 30vw;
+  width: 16vw;
   min-width: 450px;
   text-transform: uppercase;
   color: white;
@@ -232,10 +232,10 @@ nav {
   background-color: var(--blur-bg-bright);
   backdrop-filter: blur(var(--blur-amt-xl));
   -webkit-backdrop-filter: blur(var(--blur-amt-xl));
-  /* border: var(--button-border); */
   border-radius: var(--padding-xs);
-  padding: var(--padding-s);
-  font-size: 0.8em;
+  /* border: var(--button-border); */
+  padding: var(--padding-s) var(--padding-m);
+  font-size: 1em;
   animation-name: pageload;
   animation-duration: 1s;
   color: white;
@@ -245,7 +245,7 @@ nav {
 
 @keyframes pageload {
   from {
-    transform: scale(1.075);
+    transform: scale(1.2);
     opacity: 0;
   }
 
@@ -637,7 +637,7 @@ nav {
 
 .footer-seperator {
   display: flex;
-  gap: var(--padding-m);
+  gap: var(--padding-xs);
   align-items: center;
 }
 
@@ -645,6 +645,13 @@ nav {
   font-size: 1em;
   color: inherit;
   font-family: var(--font-main);
+  transition: opacity 300ms ease;
+}
+
+a.footer-text:hover {
+  transition: opacity 300ms ease;
+  opacity: 0.5;
+  text-decoration: inherit;
 }
 
 a.about-text {
@@ -660,10 +667,6 @@ a.about-text {
 a.about-text:hover {
   margin: 0px var(--padding-m);
   transition: margin ease 300ms;
-}
-
-#time {
-  min-width: 70px;
 }
 
 .work-status {
@@ -734,18 +737,16 @@ a.about-text:hover {
   opacity: 0.2;
 }
 
-/* --------------------------------------------------------------------------------------- Imprint & Privacy Policy */
-.imprint-main {
+/* --------------------------------------------------------------------------------------- legal & Privacy Policy */
+.legal-main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--foreground);
-  color: var(--background);
 }
 
-.imprint-container {
+.legal-container {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -755,31 +756,32 @@ a.about-text:hover {
   padding: 10em 0px 10em 0px;
 }
 
-.imprint-title {
+.legal-title {
   font-size: 3em;
   line-height: 2;
-  font-family: "Bold";
+  font-family: var(--font-main);
 }
 
-.imprint-subtitle {
-  font-size: 1em;
+.legal-subtitle {
+  font-size: 1.5em;
   line-height: 2;
-  font-family: "Bold";
+  font-family: var(--font-main);
 }
 
-.imprint-text {
+.legal-text {
   font-size: 1em;
   text-align: start;
   line-height: 1.2;
+  font-family: var(--font-main);
 }
 
-a.imprint-text {
+a.legal-text {
   text-decoration: none;
   font-size: 1em;
   line-height: 2;
 }
 
-a.imprint-text:hover {
+a.legal-text:hover {
   text-decoration: underline;
 }
 
@@ -945,16 +947,16 @@ a.imprint-text:hover {
     font-size: 0.5em;
   }
 
-  /* Imprint / Privacy Policy */
-  .imprint-main {
+  /* legal / Privacy Policy */
+  .legal-main {
     padding: 75px var(--padding-m) 75px var(--padding-m);
   }
 
-  .imprint-container {
+  .legal-container {
     max-width: 80vw;
   }
 
-  .imprint-text {
+  .legal-text {
     font-size: 1em;
   }
 }
@@ -1020,10 +1022,6 @@ a.imprint-text:hover {
   .company-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 48px;
-  }
-
-  .footer-seperator {
-    flex-direction: column;
   }
 }
 
