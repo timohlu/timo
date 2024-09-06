@@ -198,7 +198,7 @@ nav {
 .project-container {
   position: relative;
   min-height: 100svh; /* was 100vh */
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   display: flex;
   align-items: center;
   justify-content: center;
