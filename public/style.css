@@ -197,7 +197,7 @@ nav {
 
 .project-container {
   position: relative;
-  min-height: 100lvh; /* was 100vh */
+  min-height: 100vh; /* was 100vh */
   scroll-snap-align: start;
   display: flex;
   align-items: center;
