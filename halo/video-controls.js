@@ -47,3 +47,14 @@ function togglePlay() {
     pauseButton.style.display = "none";
   }
 }
+
+document.addEventListener("visibilitychange", function () {
+  if (document.visibilityState === 'visible') {
+    // console.log('Has focus');
+  } else {
+    // console.log('Lost focus');
+    video.pause();
+    playButton.style.display = "block";
+    pauseButton.style.display = "none";
+  }
+});
