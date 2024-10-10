@@ -636,6 +636,7 @@ nav {
 .about-body {
   background-color: #d9d9d9;
   color: #111;
+  overflow-x: hidden;
 }
 
 .main-about {
@@ -962,14 +963,11 @@ a.legal-text:hover {
   .offer-container {
     flex-direction: column;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 2em;
   }
 
   .about-footer {
-    left: var(--padding-xs);
-    right: var(--padding-xs);
-    bottom: var(--padding-xs);
-    font-size: 0.5em;
+    display: none;
   }
 
   /* legal / Privacy Policy */
@@ -983,6 +981,10 @@ a.legal-text:hover {
 
   .legal-text {
     font-size: 1em;
+  }
+
+  .footer-seperator {
+    flex-direction: column;
   }
 }
 
