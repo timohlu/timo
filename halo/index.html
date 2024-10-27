@@ -67,19 +67,26 @@
 
     <!-- Images & Videos -->
     <div class="image-container grid-two">
+
       <div class="video-container full-width">
-        <video id="video-one" class="project-image project-video" src="/projects/halo-edition/assets/videos/HALO_EDITION_FILM_16-9.mp4" loop nocontrols playsinline muted autoplay poster="/projects/halo-edition/assets/images/HaloEdition_Stills_DP_Video-1_Poster_text_blur.webp"></video>
+        <video class="project-image project-video" src="/projects/halo-edition/assets/videos/HALO_EDITION_FILM_16-9.mp4" loop nocontrols playsinline muted autoplay poster="/projects/halo-edition/assets/images/HaloEdition_Stills_DP_Video-1_Poster_text_blur.webp"></video>
         <div class="video-controls-div">
-          <button class="video-control-button" onclick="togglePlay()">
-            <img id="pause" class="video-control-icon" src="/public/assets/svg/utility/pause-fill-white.svg" alt="">
-            <img id="play" class="video-control-icon" src="/public/assets/svg/utility/play-fill-white.svg" alt="">
-          </button>
-          <button class="video-control-button" onclick="toggleMute()">
-            <img id="unmute" class="video-control-icon" src="/public/assets/svg/utility/volume-mute-fill-white.svg" alt="">
-            <img id="mute" class="video-control-icon" src="/public/assets/svg/utility/volume-up-fill-white.svg" alt="">
-          </button>
+          <div class="video-buttons-container">
+            <button class="video-control-button play-pause-button">
+              <img class="video-control-icon pause" src="/public/assets/svg/utility/pause-fill-white.svg" alt="">
+              <img class="video-control-icon play" src="/public/assets/svg/utility/play-fill-white.svg" alt="">
+            </button>
+            <button class="video-control-button mute-button">
+              <img class="video-control-icon unmute" src="/public/assets/svg/utility/volume-mute-fill-white.svg" alt="">
+              <img class="video-control-icon mute" src="/public/assets/svg/utility/volume-up-fill-white.svg" alt="">
+            </button>
+          </div>
+          <div class="playback-container">
+            <div class="playback-bar"></div>
+          </div>
         </div>
       </div>
+
       <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/halo-edition/assets/images/HaloEdition_Stills_DP_2.webp" alt="" draggable="false" loading="lazy">
       <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/halo-edition/assets/images/HaloEdition_Stills_DP_1.webp" alt="" draggable="false" loading="lazy">
       <video class="project-image full-height" src="/projects/halo-edition/assets/videos/HALO_CUTDOWN_MAG_V002.mp4" loop nocontrols playsinline muted autoplay poster="/projects/halo-edition/assets/images/HaloEdition_Stills_DP_Video-2_Poster_text_blur.webp"></video>

@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // -------------------------------------------------------------------------- IMAGE PROTECTION
 function preventContextMenu(event) {
-  const body = document.getElementById("body");
   event.preventDefault();
   console.log("Please don't steal the images!");
 }
