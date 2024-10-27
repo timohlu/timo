@@ -367,29 +367,66 @@ nav {
   position: relative;
 }
 
+.video-container:hover .video-controls-div {
+  opacity: 1;
+  transition: opacity 150ms ease;
+}
+
+.playback-container {
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: var(--blur-bg-bright);
+}
+
+.playback-bar {
+  width: 0%;
+  height: 100%;
+
+  border-radius: 100px;
+  cursor: pointer;
+  background-color: white;
+  opacity: 0.5;
+}
+
 .video-controls-div {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+  left: var(--padding-s);
+  right: var(--padding-s);
+  bottom: var(--padding-s);
   display: flex;
-  gap: 6px;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--padding-s);
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.video-buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--padding-xxs);
 }
 
 .video-control-button {
   z-index: 100;
   aspect-ratio: 1;
   border-radius: 100px;
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  /* border: 0.5px solid rgba(255, 255, 255, 0.2);
   background-color: var(--blur-bg-bright);
   backdrop-filter: blur(var(--blur-amt-s));
-  -webkit-backdrop-filter: blur(var(--blur-amt-s));
+  -webkit-backdrop-filter: blur(var(--blur-amt-s)); */
 }
 
 .video-control-icon {
-  width: 18px;
-  height: 18px;
-  margin: 6px;
+  width: var(--padding-m);
+  height: var(--padding-m);
+  margin: 4px;
   pointer-events: none;
 }
 
@@ -636,6 +673,7 @@ nav {
 .about-body {
   background-color: #d9d9d9;
   color: #111;
+  overflow-x: hidden;
 }
 
 .main-about {
@@ -962,14 +1000,11 @@ a.legal-text:hover {
   .offer-container {
     flex-direction: column;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 2em;
   }
 
   .about-footer {
-    left: var(--padding-xs);
-    right: var(--padding-xs);
-    bottom: var(--padding-xs);
-    font-size: 0.5em;
+    display: none;
   }
 
   /* legal / Privacy Policy */
@@ -983,6 +1018,10 @@ a.legal-text:hover {
 
   .legal-text {
     font-size: 1em;
+  }
+
+  .footer-seperator {
+    flex-direction: column;
   }
 }
 
