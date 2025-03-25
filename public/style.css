@@ -85,8 +85,13 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
-  margin: 0;
+  margin: auto;
+  max-width: 1800px;
   font-size: 0.75rem;
+}
+
+.homebody {
+  max-width: 100vw;
 }
 
 a {
@@ -177,9 +182,9 @@ nav {
 /* --------------------------------------------------------------------------------------- Render */
 .render-title-container {
   position: fixed;
-  /* 
+  /*
   bottom: var(--padding-m);
-  right: var(--padding-m); 
+  right: var(--padding-m);
   width: 50vw
   */
   top: 0;
@@ -194,8 +199,10 @@ nav {
 
   pointer-events: none;
 }
+
 .render-image {
   width: 50%;
+  max-width: 800px;
   object-fit: contain;
 }
 
@@ -702,7 +709,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* background-color: rgba(255, 255, 255, 0); */
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
   padding: var(--padding-m) var(--padding-l) var(--padding-m) var(--padding-l);
@@ -718,7 +724,8 @@ nav {
   font-size: 1em;
   color: inherit;
   font-family: var(--font-main);
-  transition: opacity 300ms ease;
+  transition: opacity 150ms ease;
+  opacity: 1;
 }
 
 .animate-fade-up {
@@ -727,7 +734,6 @@ nav {
 }
 
 a.footer-text:hover {
-  transition: opacity 300ms ease;
   opacity: 0.5;
   text-decoration: inherit;
 }
