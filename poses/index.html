@@ -2,81 +2,83 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="icon" href="/public/assets/logo/safari/Logo-Box-Bright-2.ico" sizes="any">
-  <link rel="apple-touch-icon" href="/public/assets/logo/Logo-Box-Bright-2@2x.jpg" sizes="any">
-  <link rel="icon" href="/public/assets/logo/No-BG-Bright-1.svg" type="image/svg+xml">
-  <link rel=”mask-icon” href="public/assets/logo/No-BG-Bright-1.svg" color="#d9d9d9" type="image/svg+xml">
-  
-  <title>→ Poses</title>
-  <meta name="description" content="Explore 'Poses,' a personal project where I delve into lighting and shading techniques. As a case study." />
-  <meta name="keywords" content="3D rendering, 3D design, architectural visualization, interior design rendering, product visualization, CGI services, photorealistic rendering." />
-  
-  <link rel="stylesheet" href="/public/style.css">
-  
-  <script defer src="/public/global.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/public/assets/logo/safari/Logo-Box-Bright-2.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/public/assets/logo/Logo-Box-Bright-2@2x.jpg" sizes="any">
+    <link rel="icon" href="/public/assets/logo/No-BG-Bright-1.svg" type="image/svg+xml">
+    <link rel=”mask-icon” href="public/assets/logo/No-BG-Bright-1.svg" color="#d9d9d9" type="image/svg+xml">
+
+    <title>→ Poses</title>
+    <meta name="description" content="Explore 'Poses,' a personal project where I delve into lighting and shading techniques. As a case study." />
+    <meta name="keywords" content="3D rendering, 3D design, architectural visualization, interior design rendering, product visualization, CGI services, photorealistic rendering." />
+
+    <link rel="stylesheet" href="/public/style.css">
+
+    <script defer src="/public/global.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
-  <nav id="navbar">
-    <a href="/" class="nav-link" aria-label="Return to Homepage">Home</a>
-    <a href="/" class="nav-link" aria-label="Return to Homepage">
-      <img src="/public/assets/logo/No-BG-Bright-1.svg" alt="" class="nav-logo">
-    </a>
-    <a href="/about" class="nav-link" aria-label="Go to About page">About</a>
-  </nav>
+    <nav id="navbar">
+        <a href="/" class="nav-link" aria-label="Return to Homepage">Home</a>
+        <a href="/" class="nav-link" aria-label="Return to Homepage">
+            <img src="/public/assets/logo/No-BG-Bright-1.svg" alt="" class="nav-logo">
+        </a>
+        <a href="/about" class="nav-link" aria-label="Go to About page">About</a>
+    </nav>
 
-  <main>
-    <!-- Hero -->
-    <div class="header-container" id="resizeElement">
-      <p class="header-text">Poses</p>
-      <p class="header-text">Personal Work</p>
-      <p class="header-text">2022</p>
-    </div>
-
-    <!-- Info -->
-    <div class="project-info-container">
-      <p class="project-info" id="showCredits">Credits</p>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal" id="myModal">
-      <span class="close-btn" id="closeModal">close</span>
-      <div class="modal-content">
-        <p class="modal-title">Credits</p>
-
-        <!-- Creative Direction + Photography -->
-        <div class="modal-text-div">
-          <p class="modal-info">All</p>
-          <p class="modal-text">Timo Hlubek</p>
+    <main>
+        <!-- Hero -->
+        <div class="header-container" id="resizeElement">
+            <p class="header-text">Poses</p>
+            <p class="header-text">Personal Work</p>
+            <p class="header-text">2022</p>
         </div>
-      </div>
-    </div>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-      <button class="close-btn" id="close-btn">close</button>
-      <img src="" alt="Lightbox Image" class="lightbox-img" id="lightbox-img" draggable="false" loading="lazy">
-      <div class="lightbox-controls">
-        <button class="prev-btn" id="prev-btn">←</button>
-        <p class="lightbox-count" id="lightbox-img-nr">[1/12]</p>
-        <button class="next-btn" id="next-btn">→</button>
-      </div>
-    </div>
+        <!-- Info -->
+        <div class="project-info-container">
+            <p class="project-info" id="showCredits">Credits</p>
+        </div>
 
-    <!-- Images -->
-    <div class="image-container grid-three">
-      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_Blue_001.webp" alt="" draggable="false" loading="lazy">
-      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_Blue_002.webp" alt="" draggable="false" loading="lazy">
-      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Thin-1_PV_HG_Blue_014.webp" alt="" draggable="false" loading="lazy">
-      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-2_PV_002.webp" alt="" draggable="false" loading="lazy">
-      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_002.webp" alt="" draggable="false" loading="lazy">
-      <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Thin-1_PV_014_0072.webp" alt="" draggable="false" loading="lazy">
-    </div>
-  </main>
+        <!-- Modal -->
+        <div class="modal" id="myModal">
+            <span class="close-btn" id="closeModal">close</span>
+            <div class="modal-content">
+                <p class="modal-title">Credits</p>
+
+                <!-- Creative Direction + Photography -->
+                <div class="modal-text-div">
+                    <p class="modal-info">All</p>
+                    <p class="modal-text">Timo Hlubek</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <button class="close-btn" id="close-btn">close</button>
+            <img src="" alt="Lightbox Image" class="lightbox-img" id="lightbox-img" draggable="false" loading="lazy">
+            <div class="lightbox-controls">
+                <button class="prev-btn" id="prev-btn">←</button>
+                <p class="lightbox-count" id="lightbox-img-nr">[1/12]</p>
+                <button class="next-btn" id="next-btn">→</button>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div class="image-container grid-three">
+            <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_Blue_001.webp" alt="" draggable="false" loading="lazy">
+            <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_HG_Blue_002.webp" alt="" draggable="false" loading="lazy">
+            <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Thin-1_PV_HG_Blue_014.webp" alt="" draggable="false" loading="lazy">
+            <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-2_PV_002.webp" alt="" draggable="false" loading="lazy">
+            <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Shy-1_PV_002.webp" alt="" draggable="false" loading="lazy">
+            <img class="project-image lightbox-trigger" id="lightbox-img" src="/projects/poses-2/assets/PosesVol2_RS_PP_Thin-1_PV_014_0072.webp" alt="" draggable="false" loading="lazy">
+        </div>
+    </main>
 </body>
 
 </html>
