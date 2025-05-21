@@ -174,31 +174,6 @@ nav {
   transition: transform ease 150ms;
 }
 
-/* --------------------------------------------------------------------------------------- Render */
-.render-title-container {
-  position: fixed;
-  /* 
-  bottom: var(--padding-m);
-  right: var(--padding-m); 
-  width: 50vw
-  */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  pointer-events: none;
-}
-.render-image {
-  width: 50%;
-  object-fit: contain;
-}
-
 /* --------------------------------------------------------------------------------------- Home */
 .main-home {
   display: flex;
@@ -866,6 +841,28 @@ a.legal-text:hover {
   text-decoration: underline;
 }
 
+.legal-list {
+  list-style: none;
+  margin: var(--padding-s) 0;
+  font-family: var(--font-main);
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.legal-list li {
+  margin-bottom: var(--padding-xs);
+  position: relative;
+  padding-left: var(--padding-l);
+}
+
+.legal-list li::before {
+  content: "•";
+  position: absolute;
+  left: var(--padding-s);
+  color: var(--foreground);
+  opacity: 0.5;
+}
+
 /* Info */
 .project-info-container {
   background-color: var(--blur-bg-dark);
@@ -1027,14 +1024,6 @@ a.legal-text:hover {
 
 /* --------------------------------------------------------------------------------------- Mobile ------ iPhone */
 @media screen and (max-width: 768px) {
-  .render-title-container {
-    bottom: var(--padding-s);
-    align-items: end;
-  }
-  .render-image {
-    width: 50%;
-  }
-
   /* MAIN */
   .header-text {
     font-size: 0.85em;
