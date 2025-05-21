@@ -432,6 +432,7 @@ nav {
   border-radius: var(--padding-s);
   overscroll-behavior: contain;
   padding: var(--padding-m);
+  display: none;
 }
 
 .liss-text {
