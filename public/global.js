@@ -311,12 +311,9 @@ gsap.utils.toArray('.project-image').forEach((img, i) => {
 });
 
 gsap.from(".header-text, .about-text", {
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  stagger: 0.2,
-  ease: "power2.out"
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power2.out"
 });
-
-gsap.registerPlugin(ScrollTrigger);
-
